@@ -1,6 +1,8 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@import url('http://fonts.cdnfonts.com/css/athabasca');
+@import url('http://fonts.cdnfonts.com/css/league-mono');
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
@@ -71,7 +73,7 @@ h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: #040b14;
+  background: #10222F;
   overflow-y: auto;
 }
 
@@ -136,6 +138,11 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
+.icon-social {
+  width: 40px;
+  height: 20px;
+
+}
 .profile-img {
   width: 100px;
   height: 115px;
@@ -165,7 +172,9 @@ h6 {
   transition: 0.3s;
   font-size: 15px;
 }
-
+.nav-icon {
+  margin: 0 20px;
+}
 .nav-menu a i {
   font-size: 24px;
   padding-right: 8px;
@@ -173,7 +182,8 @@ h6 {
 }
        
 .my-name{
-  color:white;
+  color:#DADADA;
+  margin-left: 20px;
   font-size: 18px;
 }
 
@@ -234,22 +244,25 @@ h6 {
   margin: 90px;
   margin-left: 15%;
   width: 40%;
+  font-size: 24px;
+  font-family: 'Athabasca', sans-serif;
+  font-weight:bolder;
   height: auto;
   color: rgb(223, 213, 213);
 }
 .hero-title p {
   text-align: right;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 36px;
 }
 
 .hero-text {
-  margin: 90px;
-  margin-left: 17%;
+  margin-left: 20%;
+  padding: 10px;
   width: 40%;
   height: auto;
   color: rgb(223, 213, 213);
-  box-shadow: 10px 10px 20px 50px rgba(255, 255, 255, 0.164);
+  box-shadow: 10px 10px 20px 50px rgba(255, 255, 255, 0.089);
 }
 .hero-text p {
   padding: 15px;
@@ -301,6 +314,18 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.container{
+  /* display: flex; */
+}
+.container-about{
+  display: flex;
+}
+.container-about p{
+  font-family: 'League Mono', sans-serif;
+  letter-spacing: 10;
+}
+
+
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
@@ -1046,7 +1071,7 @@ section {
   bottom: 0;
   width: 200px;
   z-index: 9999;
-  background: #040b14;
+  background: #10222fd3;
 }
 
 #footer .copyright {
