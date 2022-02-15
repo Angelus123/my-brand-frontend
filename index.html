@@ -16,69 +16,87 @@
     rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body class="home">
 
   <!-- ======= Mobile nav toggle button ======= -->
   <i></i>
 
   <!-- ======= Header ======= -->
-  <header id="header">
-    <div>
-      <div class="profile">
-        <img src="assets/img/profile-img.png" alt="" class="profile-img">
-        <h2><a href="index.html" class="my-name">IZERE Ange Felix</a></h2>
-
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="18px" width="18px" alt="" srcset=""
-                  class="nav-icon"></span><span>Home</span></a></li>
-          <li><a href="#about"><span><img src="assets/img/icon/about-page.png" height="18px" width="20px" alt=""
-                  srcset="" class="nav-icon"></span><span>About</span></a></li>
-          <li><a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="18px" width="18px" alt=""
-                  srcset="" class="nav-icon"></span><span>Resume</span></a></li>
-          <li><a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="18px" width="18px" alt=""
-                  srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
-          <li><a href="#services"><span><img src="assets/img/icon/service-page.png" height="18px" width="18px" alt=""
-                  srcset="" class="nav-icon"></span><span>Services</span></a></li>
-          <li><a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="18px" width="18px" alt=""
-                  srcset="" class="nav-icon"></span><span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
+  <header class ="header">
+    <div class="log"> <img src="./assets/img/logo/logo.png" alt="My Brand"  height="40px" width="100px"></div>
+    <div > 
+      <img src="assets/img/icon/GitHub.png" height="40px" width="70px" alt="">
     </div>
-  </header><!-- End Header -->
+
+    <div style="padding: 10px;"> 
+      <a href="#" >Angelus</a>
+    </div>
+  </header>
+
+  <nav class="sticky nav-bar">
+    <ul style="display: flex;">
+      <li><a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="18px" width="18px" alt="" srcset=""
+              class="nav-icon"></span><span>Home</span></a></li>
+      <li><a href="#about"><span><img src="assets/img/icon/about-page.png" height="18px" width="20px" alt=""
+              srcset="" class="nav-icon"></span><span>About</span></a></li>
+      <li><a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="18px" width="18px" alt=""
+              srcset="" class="nav-icon"></span><span>Resume</span></a></li>
+      <li><a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="18px" width="18px" alt=""
+              srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
+      <li><a href="#services"><span><img src="assets/img/icon/service-page.png" height="18px" width="18px" alt=""
+              srcset="" class="nav-icon"></span><span>Services</span></a></li>
+      <li><a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="18px" width="18px" alt=""
+              srcset="" class="nav-icon"></span><span>Contact</span></a></li>
+
+     
+    </ul>
+    <div style="display: flex; padding: 20px;">
+      <button style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;">Login</button>
+
+      <button style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;" >Sign Up</button>
+    </div>
+    
+
+  </nav>
+  <!-- ======= end Header ======= -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
-    <div class="hero-title">
+    <div class="container">
+      <div class="item1">
+        <div class="hero-title">
+          <p>
+            A software engineer
+                          <br> seo
+                          <br>& Designers
+          </p>
+        </div>
+      </div>  
+      <div class="item2">
+        <div class="hero-question">
+         <h1>Are You Ready To Take Your Website To The Next Level?</h1> 
+        </div>
+        <div class="hero-description">
+          <p>
+            At Vi-la code, we design amazing websites ,
+          </p>
+          <ul>
+            <li>Take Your Website to best level,</li>
+            <li>Do search Engine Optimization</li>
+            <li>Customer-Oriented</li>
+            <li>Ultra Fast Loading Sites</li>
+            <li>Works Across Devices</li>
+            <li>Happiness Guaranteed</li>
+          </ul>
 
-      <p>I'm a software developer <br> Architect<br> & designer</p>
-      <div style="display: flex; margin-left:15% ;">
-        <button style="padding: 10px; margin-left: 5px;  width: 300px; border-radius: 10px;">LOGIN</button>
-        <button style="padding: 10px; margin-left: 50px;  width: 300px; border-radius: 10px;">SIGN UPP</button>
-     </div>
-    </div>
-
-  
-
-    <div class="hero-text">
-
-      I design websites for engagement, conversion, and results!<br>
-      Website Design Fresno CA Based <br>
-      <ul>
-        <li>Customer-Oriented</li> 
-        <li>ROI-Driven</li>
-        <li>Ultra Fast Loading Sites</li>
-        <li>Works Across Devices</li>
-        <li>Happiness Guaranteed</li>  
-      </ul>
-      <b style="padding: 10px; background-color: white; color: black;"> Are You Ready To Take Your Website To The Next Level?</b>
-      
-
-      </p>
+        </div>
+        
+      </div>
+      <div class="item3"></div>
     </div>
   </section><!-- End Hero -->
 
@@ -87,7 +105,6 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container-about">
-
         <div class="section-title">
           <h2>About</h2>
           <p>Hello,
@@ -99,11 +116,10 @@
           </p>
         </div>
 
-        <div>
+        <div class="section-title">
 
           <div class="content">
-            <h3>UI/UX Designer &amp; Web Developer.</h3>
-
+            <h2>Background as Developer.</h2>
             <p>
               Over the years ago I built a range of skills and qualities that could make me a match 
               for any job in the software development industry.
@@ -113,81 +129,6 @@
 
       </div>
 
-      <div class="row">
-        <div class="">
-          <ul>
-            <li><i class=""></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-            <li><i class=""></i> <strong>Website:</strong> <span>www.example.com</span></li>
-            <li><i class=""></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-            <li><i class=""></i> <strong>City:</strong> <span>New York, USA</span></li>
-          </ul>
-        </div>
-        <div class="">
-          <ul>
-            <li><i class=""></i> <strong>Age:</strong> <span>30</span></li>
-            <li><i class=""></i> <strong>Degree:</strong> <span>Master</span></li>
-            <li><i class=""></i> <strong>PhEmailone:</strong> <span>email@example.com</span></li>
-            <li><i class=""></i> <strong>Freelance:</strong> <span>Available</span></li>
-          </ul>
-        </div>
-      </div>
-
-
-    </section><!-- End About Section ok -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row no-gutters">
-
-          <div data-aos="fade-up">
-            <div>
-              <i></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
-          </div>
-
-          <div>
-            <div>
-              <i></i>
-              <span></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div>
-          </div>
-
-          <div>
-            <div class="count-box">
-              <i class=""></i>
-              <span></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div>
-          </div>
-
-          <div>
-            <div class="count-box">
-              <i class=""></i>
-              <span></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
       <div class="container">
 
         <div class="section-title">
@@ -197,11 +138,8 @@
             in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <div class="row skills-content">
-
-          <div>
-
-            <div class="progress">
+        <div class="skills-content">
+            <div class="skill-progress">
               <span class="skill">Node.js <i class="val">80%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
@@ -209,64 +147,54 @@
               </div>
             </div>
 
-            <div class="progress">
+            <div class="skill-progress">
               <span class="skill">React & Redux <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
             </div>
 
-            <div class="progress">
+            <div class="skill-progress">
               <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
             </div>
 
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
+            <div class="skill-progress">
               <span class="skill">Java & Android <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
             </div>
 
-            <div class="progress">
+            <div class="skill-progress">
               <span class="skill">HTML5 <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
             </div>
 
-            <div class="progress">
+            <div class="skill-progress">
               <span class="skill">CSS3<i class="val">65%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
             </div>
 
-            <div class="progress">
+            <div class="skill-progress">
               <span class="skill">Photoshop<i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
             </div>
-
-          </div>
-
         </div>
-
       </div>
-    </section><!-- End Skills Section -->
+
+      <div class="container-about-more">
+        <p class="">
+          <ul>
+            <li><i class=""></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
+            <li><i class=""></i> <strong>Website:</strong> <span>www.example.com</span></li>
+            <li><i class=""></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
+            <li><i class=""></i> <strong>City:</strong> <span>New York, USA</span></li>
+          </ul>
+        </p>
+        <p class="">
+          <ul>
+            <li><i class=""></i> <strong>Age:</strong> <span>30</span></li>
+            <li><i class=""></i> <strong>Degree:</strong> <span>Master</span></li>
+            <li><i class=""></i> <strong>PhEmailone:</strong> <span>email@example.com</span></li>
+            <li><i class=""></i> <strong>Freelance:</strong> <span>Available</span></li>
+          </ul>
+        </p>
+      </div>
+    
+
+
+    </section><!-- End About Section ok -->
 
     <!-- ======= Resume Section ======= -->
     <section id="resume">
@@ -693,7 +621,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <!-- <footer id="footer">
     <div class="container">
       <div class="social-links">
         <a href="#" class=""><img src="./assets/img/icon/Twitter.png" alt="" srcset="" class="icon-social"></a>
@@ -708,7 +636,7 @@
         Designed by <a href="#">IZERE Ange Felix</a>
       </div>
     </div>
-  </footer><!-- End  Footer -->
+  </footer>End  Footer -->
 
   <a href="#"><i></i></a>
 
