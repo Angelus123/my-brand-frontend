@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+    <title>Dashboard</title>
+    
+</head>
+<body>
+      <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">IZERE Ange Felix</a></h1>
+      </div>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="#blog" class="nav-link"><span>Manage blog</span></a></li>
+          <li><a href="#about" class="nav-link"><span>Manage About</span></a></li>
+          <li><a href="#resume" class="nav-link"><span>Manage resume</span></a></li>
+          <li><a href="#message" class="nav-link"><span>Manage Message</span></a></li>
+          <li><a href="./index.html#portfolio" class="nav-link"><span>Manage Portfolio</span></a></li>
+          <button onclick="formLogout()">Logout</button>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+  <nav class="sticky nav-bar">
+    <ul>
+      <li><a href="index.html#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Home</span></a></li>
+      <li><a href="index.html#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>About</span></a></li>
+      <li><a href="index.html#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Resume</span></a></li>
+      <li><a href="index.html#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px" alt=""
+              srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
+      <li><a href="index.html#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Blog</span></a></li>
+      <li><a href="index.html#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px" alt=""
+              srcset="" class="nav-icon"></span><span>Contact</span></a></li>
+    </ul>
+</nav>
+  <!-- ======= workin space Section ======= -->
+
+  <section id="working-space" class="working-space">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Option</th>
+            </tr>
+            <tr>
+                <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></td>
+                <td>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                     Libero vitae modi dicta obcaecati, aperiam maiores quae! Blanditiis aspernatur et, quisquam 
+                    veritatis accusamus adipisci aut eaque suscipit illum quos, esse exercitationem!
+                </td>
+                <td> <div class="options">
+                    <span><img src="./assets/img/icon/comments.png" alt="" style="height: 30px ; width: 35px"
+                        srcset=""></span>
+                    <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+                    <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+                    <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+                  </div</td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <button style="font-size: 36px; color: green; font-weight: 800;" onclick="openBlogForm()">+</button>
+            
+            <div class="form-popup" id="myBlogForm">
+                <form action="/action_page.php" class="form-container-blog">
+                  <h1>Blog</h1>
+                    <div>
+                        <label for="name"><b>Title</b></label>
+                    </div>
+                    
+                    <input type="text" name="title" class="text-field "> <br>
+                   <div>
+                        Article
+                   </div>
+                    <div>
+                        <textarea class="text-field" name="message" id="" cols="30" rows="5"></textarea>
+                    </div>
+                    
+                    <input type="submit" value="SEND">
+                    </form>
+              </div>
+        </table>
+
+    
+  </section><!-- End Resume Section -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+  <script src="./assets/js/dashboard.js"></script>
+
+    
+</body>
+</html>

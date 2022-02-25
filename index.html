@@ -11,6 +11,7 @@
 
 
   <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
@@ -23,46 +24,111 @@
 <body class="home">
 
   <!-- ======= Mobile nav toggle button ======= -->
-  <i></i>
+
+  <!-- Simulate a smartphone / tablet -->
+  <div class="mobile-container">
+
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <div class="log"> <img src="./assets/img/logo/logo.png" alt="My Brand" height="40px" width="100px"></div>
+      <div id="myLinks">
+
+        <a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Home</span></a>
+        <a href="#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>About</span></a>
+        <a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Resume</span></a>
+        <a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px" alt=""
+              srcset="" class="nav-icon"></span><span>Portfolio</span></a>
+        <a href="#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Blog</span></a></li>
+        <a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px" alt="" srcset=""
+              class="nav-icon"></span><span>Contact</span></a>
+
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  <!-- End smartphone / tablet look -->
+
 
   <!-- ======= Header ======= -->
-  <header class ="header">
-    <div class="log"> <img src="./assets/img/logo/logo.png" alt="My Brand"  height="40px" width="100px"></div>
-    <div > 
-      <img src="assets/img/icon/GitHub.png" height="40px" width="70px" alt="">
-    </div>
-
-    <div style="padding: 10px;"> 
-      <a href="#" >Angelus</a>
+  <header class="header">
+    <div class="log-desk"> <img src="./assets/img/logo/logo.png" alt="My Brand" height="40px" width="100px"></div>
+    <div>
+      <!-- <img src="assets/img/icon/GitHub.png" height="40px" width="70px" alt=""> -->
     </div>
   </header>
 
   <nav class="sticky nav-bar">
-    <ul style="display: flex;">
-      <li><a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="18px" width="18px" alt="" srcset=""
+    <ul>
+      <li><a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt="" srcset=""
               class="nav-icon"></span><span>Home</span></a></li>
-      <li><a href="#about"><span><img src="assets/img/icon/about-page.png" height="18px" width="20px" alt=""
-              srcset="" class="nav-icon"></span><span>About</span></a></li>
-      <li><a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="18px" width="18px" alt=""
-              srcset="" class="nav-icon"></span><span>Resume</span></a></li>
-      <li><a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="18px" width="18px" alt=""
+      <li><a href="#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>About</span></a></li>
+      <li><a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Resume</span></a></li>
+      <li><a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px" alt=""
               srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
-      <li><a href="#blog"><span><img src="assets/img/icon/service-page.png" height="18px" width="18px" alt=""
-              srcset="" class="nav-icon"></span><span>Blog</span></a></li>
-      <li><a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="18px" width="18px" alt=""
+      <li><a href="#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span>Blog</span></a></li>
+      <li><a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px" alt=""
               srcset="" class="nav-icon"></span><span>Contact</span></a></li>
 
-     
-    </ul>
-    <div style="display: flex; padding: 20px;">
-      <button style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;">Login</button>
 
-      <button style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;" >Sign Up</button>
+    </ul>
+    <div class="social">
+      <a href="#myLoginForm"><button
+          style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
+          onclick="openLoginForm()">Login</button></a>
+
+
+      <a href="#mySignUpForm"><button
+          style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
+          onclick="openSignUpForm()">Sign Up</button></a>
     </div>
-    
+
 
   </nav>
   <!-- ======= end Header ======= -->
+  <!-- ======= Login form ======= -->
+  <div class="form-popup" id="myLoginForm">
+    <form action="/action_page.php" class="form-container">
+      <div class="cancel" onclick="closeLoginForm()">x</div>
+      <h1>Login</h1>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password">
+      <input type="checkbox" name="remember" id="remember"><span>keep me logged</span>
+      <input type="submit" class="btn" value="Login">
+      Don’t have an account <b> Sign up</b>
+    </form>
+  </div>
+  <div class="form-popup" id="mySignUpForm">
+    <form class="form-container-signup">
+      <div class="cancel" onclick="closeSignUpForm()">x</div>
+      <h1>SignUp</h1>
+      <label for="email"><b>Full Name</b></label>
+      <input type="text" placeholder="Enter Full Name" name="name" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+      <label for="psw"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+      Alrready have account <b>Login</b>
+      <button type="submit" class="btn">SignUp</button>
+    </form>
+  </div>
+  <!-- ======= end Login form ======= -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -71,14 +137,12 @@
         <div class="hero-title">
           <p>
             A software engineer
-                          <br> seo
-                          <br>& Designers
           </p>
         </div>
-      </div>  
+      </div>
       <div class="item2">
         <div class="hero-question">
-         <h1>Are You Ready To Take Your Website To The Next Level?</h1> 
+          <h1>Are You Ready To Take Your Website To The Next Level?</h1>
         </div>
         <div class="hero-description">
           <div class="hero-desc">
@@ -94,20 +158,16 @@
               <li>Happiness Guaranteed</li>
             </ul>
           </div>
-         
+
           <div class="get-started">Get started</div>
 
         </div>
-        
+
       </div>
       <div class="item3"></div>
     </div>
   </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+  <section id="about">
       <div class="container-about">
         <div class="section-title">
           <h2>About</h2>
@@ -125,7 +185,7 @@
           <div class="content">
             <h2>Background</h2>
             <p>
-              Over the years ago I built a range of skills and qualities that could make me a match 
+              Over the years ago I built a range of skills and qualities that could make me a match
               for any job in the software development industry.
             </p>
           </div>
@@ -134,40 +194,40 @@
       </div>
 
 
-        <div class="skills-content">
-          <h2>Skills</h2>
-            <div class="skill-progress">
-              <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">Node.js</span>
-            </div>
-
-            <div class="skill-progress">
-              <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">React</span>
-            </div>
-
-            <div class="skill-progress">
-               <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">JavaScript </span>
-            </div>
-
-            <div class="skill-progress">
-              <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">Java </span>
-            </div>
-
-            <div class="skill-progress">
-              <img src="./assets/img/icon/figma.png" alt="" srcset=""><span class="skill">Figma </span>
-            </div>
-
-            <div class="skill-progress">
-              <img src="./assets/img/icon/mysql.png" alt="" srcset=""><span class="skill">MySQL </span>
-            </div>
-
-            <div class="skill-progress">
-               <img src="./assets/img/icon/css.png" alt="" srcset=""><span class="skill">CSS</span>
-            </div>
+      <div class="skills-content">
+        <h2>Skills</h2>
+        <div class="skill-progress">
+          <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">Node.js</span>
         </div>
+
+        <div class="skill-progress">
+          <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">React</span>
+        </div>
+
+        <div class="skill-progress">
+          <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">JavaScript </span>
+        </div>
+
+        <div class="skill-progress">
+          <img src="./assets/img/icon/js.png" alt="" srcset=""><span class="skill">Java </span>
+        </div>
+
+        <div class="skill-progress">
+          <img src="./assets/img/icon/figma.png" alt="" srcset=""><span class="skill">Figma </span>
+        </div>
+
+        <div class="skill-progress">
+          <img src="./assets/img/icon/mysql.png" alt="" srcset=""><span class="skill">MySQL </span>
+        </div>
+
+        <div class="skill-progress">
+          <img src="./assets/img/icon/css.png" alt="" srcset=""><span class="skill">CSS</span>
+        </div>
+      </div>
     </section><!-- End About Section ok -->
 
     <!-- ======= Resume Section ======= -->
-    
+
     <section id="resume">
       <h2>Resume</h2>
       <div class="resume_container">
@@ -176,52 +236,56 @@
             <ul>
               <h2>BACKGROUND</h2>
               <li>
-                
+
                 IZERE Ange Felix
-                Innovative and deadline-driven  Software developer with 3+ years of experience, 
-                 passionate about web designing and developement.
+                Innovative and deadline-driven Software developer with 3+ years of experience,
+                passionate about web designing and developement.
               </li>
               <li>Kigali, Rwanda,</li>
               <li>+250785182823</li>
               <li> izerefaifelix@gmail.com</li>
             </ul>
-          
+
           </div>
-        </div>  
+        </div>
         <div class="resume_item2">
           <div class="resume-info">
             <ul>
               <h2>SKILLS</h2>
-                <li><h3>Front-End:</h3>
-                  JavaScript, React,
-                  Redux, Vue js, HTML5, CSS3,
-                  Tailwind, Bootstrap and Material
-                  UIent</li>      
+              <li>
+                <h3>Front-End:</h3>
+                JavaScript, React,
+                Redux, Vue js, HTML5, CSS3,
+                Tailwind, Bootstrap and Material
+                UIent
+              </li>
 
-              <li> <h3>Backend:</h3>
+              <li>
+                <h3>Backend:</h3>
                 Node Js,
                 PHP, Firebase, MySQL, MongoDB,
-              </li>  
+              </li>
             </ul>
-          
+
           </div>
         </div>
         <div class="resume_item3">
-          <div class="resume-info"><ul>
-            <h2>EDUCATION</h2>
-            <li>
-              BACHELOR OF COMPUTER AND SOFTWARE ENGINEERING
+          <div class="resume-info">
+            <ul>
+              <h2>EDUCATION</h2>
+              <li>
+                BACHELOR OF COMPUTER AND SOFTWARE ENGINEERING
 
-              2017 - 2020
-              College of Science and Technology, University of Rwanda
-            </li>
+                2017 - 2020
+                College of Science and Technology, University of Rwanda
+              </li>
 
-            <h2>PROJECTS</h2>
-            <li>-Diligram chrome extension</li>
-            <li>-A mute smart ward</li>
-            <li>-Sybele dashboard</li>
-            <li> -WEBSITE XT CONSOLE</li>         
-          </ul>
+              <h2>PROJECTS</h2>
+              <li>Diligram chrome extension</li>
+              <li>A mute smart ward</li>
+              <li>Sybele dashboard</li>
+              <li>Text console</li>
+            </ul>
           </div>
         </div>
         <div class="resume_item4">
@@ -229,26 +293,26 @@
             <ul>
               <h2>Professional Experience</h2>
               <li>Full Stack developer</li>
-              <li> -Two years of experience in Full Stack development using MERN and
-                LAMP stack;  </li>
-               
-              
+              <li>Two years of experience in Full Stack development using MERN and
+                LAMP stack; </li>
+
+
               <li>-Two years of experience in Full Stack development using MERN and
                 LAMP stack;</li>
-              <li>-Andela ATLP</li>
-              <li>-BTC- blockchain</li>
-              <li>-Akagera & Rheign- website development</li>
-              <li>-Panel Tech - website development</li>
-              <li>-HAZA Tech - website development</li>
-                
-               
-             
+              <li>Andela ATLP</li>
+              <li>BTC- blockchain</li>
+              <li>Akagera & Rheign- website development</li>
+              <li>Panel Tech - website development</li>
+              <li>HAZA Tech - website development</li>
+
+
+
             </ul>
-          
+
           </div>
         </div>
       </div>
-     
+
     </section><!-- End Resume Section -->
 
     <!-- ======= Portfolio Section ======= -->
@@ -257,77 +321,183 @@
       <div class="portfolio_container">
         <div class="portfolio_item1">
           <div class="portfolio-info">
+            <img src="https://cdn.pixabay.com/photo/2016/06/03/13/57/digital-marketing-1433427_960_720.jpg" alt=""
+              srcset="" class="disigner">
 
           </div>
-        </div>  
+        </div>
         <div class="portfolio_item2">
           <div class="portfolio-info">
+            <img
+              src="https://media.istockphoto.com/photos/children-eating-fruit-at-a-nursery-with-their-carer-picture-id140080209"
+              alt="" srcset="" class="disigner">
 
           </div>
         </div>
         <div class="portfolio_item3">
-          <div class="portfolio-info"><ul>
+          <div class="portfolio-info">
+            <img src="https://cdn.pixabay.com/photo/2018/07/31/23/34/newsletter-3576193_960_720.jpg" alt="" srcset=""
+              class="disigner">
           </div>
         </div>
         <div class="portfolio_item4">
           <div class="portfolio-info">
+            <img src="https://cdn.pixabay.com/photo/2018/07/31/23/34/newsletter-3576193_960_720.jpg" alt="" srcset=""
+              class="disigner">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Portfolio Section -->
+
+  
+    <div id="readMore" >
+      <div class="cancel" onclick="closeReadMore">x</div>
+        <div class="read-more-section">
+          <img src="https://cdn.pixabay.com/photo/2019/08/10/13/26/website-4396924_960_720.jpg" alt="" srcset=""
+          class="disigner-full">
+          <div class="options">
+            <span class="blog-date">Jan 21, 2022 • 8 min read</span>
+            <span><a href="#comment"><img src="./assets/img/icon/comments.png" alt="" style="height: 30px ; width: 35px"
+                srcset=""> </a></span>
+            <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+            <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+            <span><a href="#share"><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></a></span>
+          </div>
+          <h2>7 Habits of highly successful developers</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+            <br>
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+            <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+
+          </p>
+          <div id="comment" class="comment">
+
+          <div>Leave Comment</div>
+          <div>
+            <textarea class="text-field-readmore" name="" id="" cols="60" rows="5"></textarea><br>
+            <input type="submit" value="SEND">
+          </div>
+          <div>
+            <p>Sam Smith <i class="blog-date">Jan 21, 2022 • 8 min read</i></p>
+            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+          </div>
+          <br>
+          <br>
+
+          <div>
+            <p>Anna Claire <i class="blog-date">Jan 21, 2022 • 8 min read</i></p>
+            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nisi,
+            ratione quaerat quia illo minima, laborum nesciunt eum quae nulla perferendis earum 
+            reiciendis accusamus consequatur voluptatem exercitationem sed voluptate! Quae!
+          </div>
+            
+         </div>
+         </div>
+
+  </div>
+    <!-- ======= Services Section ======= -->
+    <section id="blog" class="blog">
+
+      
+      <h2>BLOG</h2>
+      <div class="blog_container">
+        <div class="blog_item1">
+          <div class="blog-info">
+            <img src="https://cdn.pixabay.com/photo/2019/08/10/13/26/website-4396924_960_720.jpg" alt="" srcset=""
+              class="blog-img">
+            <h2>UI vs UX Designer.</h2>
+            <p>Two terms that are often used interchangeably, but actually.</p>
+            <p class="read-more">Read more</p>
+            <span class="blog-date">Jan 21, 2022 • 8 min read</span>
+            <div class="options">
+              <span><img src="./assets/img/icon/comments.png" alt="" style="height: 25px ; width: 35px"
+                  srcset=""></span>
+              <span><img src="./assets/img/icon/like.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+            </div>
+
+          </div>
+        </div>
+        <div class="blog_item2">
+          <div class="blog-info">
+            <img src="https://cdn.pixabay.com/photo/2019/08/10/13/26/website-4396924_960_720.jpg" alt="" srcset=""
+              class="disigner">
+            <h2>7 Habits of highly successful developers</h2>
+            <p>Two terms that are often used interchangeably, but actually.</p>
+            <p class="read-more">Read more</p>
+            <span class="blog-date">Jan 21, 2022 • 8 min read</span>
+            <div class="options">
+              <span><a href="#comment"><img src="./assets/img/icon/comments.png "alt="" style="height: 30px ; width: 35px" srcset=""></a></span>
+              <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="blog_item3">
+          <div class="blog-info">
+            <img src="https://cdn.pixabay.com/photo/2018/07/31/23/34/newsletter-3576193_960_720.jpg" alt="" srcset=""
+              class="disigner">
+            <h2>7 Habits of highly successful developers</h2>
+            <p>Two terms that are often used interchangeably, but actually.</p>
+            <div class="read-more" onclick="openReadMoreForm()">Read more</div>
+            <span class="blog-date">Jan 21, 2022 • 8 min read</span>
+            <div class="options">
+              <span><img src="./assets/img/icon/comments.png" alt="" style="height: 30px ; width: 35px"
+                  srcset=""></span>
+              <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+            </div>
+
+          </div>
+        </div>
+        <div class="blog_item4">
+          <div class="blog-info">
+            <img src="https://cdn.pixabay.com/photo/2019/08/10/13/26/website-4396924_960_720.jpg" alt="" srcset=""
+              class="disigner">
+            <h2>UI vs UX Designer.</h2>
+            <p>Two terms that are often used interchangeably, but actually.</p>
+            <p class="read-more">Read more</p>
+            <span class="blog-date">Jan 21, 2022 • 8 min read</span>
+            <div class="options">
+              <span><img src="./assets/img/icon/comments.png" alt="" style="height: 30px ; width: 35px"
+                  srcset=""></span>
+              <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
+              <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+            </div>
+
           </div>
         </div>
       </div>
      
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="blog" class="blog">
-        <h2>BLOG</h2>
-        <div class="blog_container">
-          <div class="blog_item1">
-            <div class="blog-info">
-  
-            </div>
-          </div>  
-          <div class="blog_item2">
-            <div class="blog-info">
-  
-            </div>
-          </div>
-          <div class="blog_item3">
-            <div class="blog-info"><ul>
-            </div>
-          </div>
-          <div class="blog_item4">
-            <div class="blog-info">
-            </div>
-          </div>
-        </div> 
     </section><!-- End Blog Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-      <section id="portfolio" class="portfolio section-bg">
-        <h2>Testimonials</h2>
-        <div class="testimonials_container">
-          <div class="testimonials_item1">
-            <div class="testimonials-info">
-  
-            </div>
-          </div>  
-          <div class="testimonials_item2">
-            <div class="testimonials-info">
-  
-            </div>
-          </div>
-          <div class="testimonials_item3">
-            <div class="testimonials-info"><ul>
-            </div>
-          </div>
-          <div class="testimonials_item4">
-            <div class="testimonials-info">
-            </div>
-          </div>
-        </div>
-       
-    </section><!-- End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -336,26 +506,48 @@
         <div class="contact_container">
           <div class="contact_item1">
             <div class="contact-info">
-  
+              <h1>LOCATION</h1>
+              <p>Kigali, Rwanda</p>
+              <h1>EMAIL</h1>
+              <h1>izerefaifelix@gmail.com</h1>
+              <h1>CALL</h1>
+              <p>0785182823</p>
+
             </div>
-          </div>  
+          </div>
           <div class="contact_item2">
-            <div class="contact-info">
-  
+            <div>
+              <h1>Headquater on MAP</h1>
+              <div class="mapouter">
+                <div class="gmap_canvas">
+                  <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Kigali&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                  </iframe>
+                </div>
+              </div>           
             </div>
           </div>
           <div class="contact_item3">
-            <div class="contact-info"><ul>
-            </div>
-          </div>
-          <div class="contact_item4">
             <div class="contact-info">
+              <i>Text me Here</i>
+              <form action="" method="post" class="form-container-message"> <br>
+                <label for="email"><b>Full Name</b></label>
+                <input type="text" name="name" value="name"> <br>
+                <label for="email"><b>Email</b></label>
+                <input type="text" value=""> <br>
+                Message
+                <textarea class="text-field" name="message" id="" cols="30" rows="5"></textarea><br>
+                <input type="submit" value="SEND">
+                <button onclick="message()">send</button>
+              </form>
+
+
             </div>
+            <button onclick="message()">Test</button>
           </div>
         </div>
-       
-    </section><!-- End Testimonials Section -->
-     
+
+      </section><!-- End Testimonials Section -->
+
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
@@ -363,32 +555,30 @@
   <a href="#"><i></i></a>
 
   <!-- ======= Header ======= -->
-  <header class ="header">
-    <div class="log"> <img src="./assets/img/logo/logo.png" alt="My Brand"  height="40px" width="100px"></div>
-    <div > 
-      <img src="assets/img/icon/GitHub.png" height="40px" width="70px" alt="">
-    </div>
 
-    <div style="padding: 10px;"> 
-      <a href="#" >Angelus</a>
-    </div>
-  </header>
+  <div class="footer">
+      <p>
+        © Copyright
+        Designed by IZERE Ange Felix
+      </p>
+      <div>
+        Social Media
+      </div>
+  </div>
 
-  <nav class="sticky nav-bar">
-    <ul style="display: flex;">
-     <span style="padding: 15px;">
-      © Copyright
-      Designed by IZERE Ange Felix 
-     </span>
-    </ul>
-    <div style="display: flex; padding: 20px;">
-     Social Media
-    </div>
-    
-
-  </nav>
   <!-- ======= end Header ======= -->
 
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+
+  <script src="./assets/js/script.js"></script>
+  
+
+
+
+ 
 </body>
 
 </html>

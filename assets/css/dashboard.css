@@ -1,0 +1,230 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  a {
+    color: #149ddd;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #37b3ed;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    transition: all ease-in-out 0.5s;
+    z-index: 9997;
+    transition: all 0.5s;
+    padding: 0 15px;
+    background: #040b14;
+    overflow-y: auto;
+  }
+  
+  #header .profile img {
+    margin: 15px auto;
+    display: block;
+    width: 120px;
+    border: 8px solid #2c2f3f;
+  }
+  
+  #header .profile h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #header .profile h1 a, #header .profile h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #header .profile .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #212431;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+  
+  ul a {
+      margin: 20px 0px;
+  }
+  
+  #header .profile .social-links a:hover {
+    background: #149ddd;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #main {
+    margin-left: 300px;
+  }
+  
+  @media (max-width: 1199px) {
+    #header {
+      left: -50px;
+    }
+    #main {
+      margin-left: 0;
+    }
+  }
+
+  /*--------------------------------------------------------------
+# Navigation 
+--------------------------------------------------------------*/
+
+nav.sticky {
+    width: 100%;
+    display: flex;
+    top: 0;
+    font-size: 20px;
+  }
+  .nav-bar {
+    width: 100%;
+    top: 0;
+    height: 50px;
+    left: -4px;
+    background: #000000;
+    box-shadow: inset 0px 1px 2px 3px rgba(138, 135, 135, 0.116);
+  }
+  .nav-bar > ul {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .nav-bar > ul > li {
+    position: relative;
+    padding: 20px 0;
+    list-style-type: none;
+    white-space: nowrap;
+  }
+  .nav-icon {
+    margin: 0 20px;
+  }
+  
+  /* mobile and Tablet Nav ----------------------------------------------------------- */
+
+
+
+  .working-space {
+      margin-left: 220px;
+  }
+  table {
+      width: 100%;
+      background-color: #040b14;
+      height: 55vh;
+    }
+  tr {
+        background-color: #4f5257;
+        color: white;
+        height: 55px;
+
+        
+    }
+    td{
+        padding: 30px;
+    }
+    th{
+        background-color: #222121;
+    }
+  
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+  /* Desktop Navigation */
+
+  .form-container-blog {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+  }
+  /* Full-width input fields */
+  .form-container-blog input[type="text"]{
+    width: 400px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  /* When the inputs get focus, do something */
+  .form-container-blog input[type="text"]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .text-field {
+    padding: 15px;
+    width: 400px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  .text-field-readmore {
+    width: 400px;
+    margin: 5px  0;
+    border: none;
+    background: #f1f1f1;
+  
+  }
+  /* Set a style for the submit/login button */
+  .form-container-blog .btn {
+    border-radius: 20px;
+    border: 2px rgb(0, 110, 255) solid;
+    background-color: rgb(0, 102, 255);
+    color: white;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  /* Add a red background color to the cancel button */
+  .form-container-blog .cancel {
+    width: fit-content;
+  
+    float: right;
+    top: 20px;
+  }
+  .form-popup {
+    display: none;
+    padding: 40px;
+    width: 60%;
+    width: fit-content;
+    height: auto;
+    margin: 0 100px;
+    background-color: rgba(122, 121, 121, 0.575);
+    border: 3px solid #f1f1f1;
+    z-index: 100;
+  }
