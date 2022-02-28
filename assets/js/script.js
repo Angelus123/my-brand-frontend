@@ -1,3 +1,22 @@
+const queryString = window.location.search;
+const email=queryString.substring(1,queryString.length);
+console.log(email)
+if(email){
+
+  document.getElementById("auth-section").innerHTML=email
+}
+else{
+  document.getElementById("auth-section").innerHTML= `<a href="#myLoginForm"><button
+  style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
+  onclick="openLoginForm()">Login</button></a>
+
+
+<a href="#mySignUpForm"><button
+  style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
+  onclick="openSignUpForm()">Sign Up</button></a>`
+
+}
+
 function openLoginForm() {
   document.getElementById("myLoginForm").style.display = "block";
 }
@@ -70,8 +89,10 @@ form.addEventListener("submit", (e) => {
     .auth()
     .signInWithEmailAndPassword(form.email.value, form.password.value)
     .then((userCredential) => {
-      console.log("Logged In");
-      location.href = "dashboard.html";
+      var user = userCredential.user;
+      console.log("Loggedd In:", user.email);
+      userCredential
+      location.href = `dashboard.html?${user.email}`;
 
       // Signed in
       var user = userCredential.user;
@@ -91,22 +112,26 @@ formSignup.addEventListener("submit", (e) => {
     "signUp In: ",
     formSignup.email.value,
     "signUp In: ",
-    formSignup.password.value
+    formSignup.confirmpassword.value
   );
   // Initialize Firebase
   app
     .auth()
     .createUserWithEmailAndPassword(
       formSignup.email.value,
-      formSignup.password.value
+      formSignup.confirmpassword.value
     )
     .then((userCredential) => {
       // Signed in
+      location.href =`dashboard.html?email="${user.email}"`;
+      console.log(userCredential)
+
 
       var user = userCredential.user;
       // ...
     })
     .catch((error) => {
+      console.log(error)
       var errorCode = error.code;
       var errorMessage = error.message;
       // ..

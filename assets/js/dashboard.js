@@ -1,4 +1,6 @@
-
+const queryString = window.location.search;
+const email=queryString.substring(1,queryString.length);
+document.getElementById("text-light").innerHTML(email)
 const formLogout = () =>{
     firebase.auth().signOut().then(() => {
         location.href = 'index.html';
