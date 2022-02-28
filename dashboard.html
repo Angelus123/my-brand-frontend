@@ -11,19 +11,19 @@
 <body>
       <!-- ======= Header ======= -->
   <header id="header">
-    <div class="d-flex flex-column">
+    <div class="">
 
       <div class="profile">
         <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">IZERE Ange Felix</a></h1>
       </div>
 
-      <nav id="navbar">
+      <nav class="nav-menu">
         <ul>
-          <li><a href="#blog" class="nav-link"><span>Manage blog</span></a></li>
-          <li><a href="#about" class="nav-link"><span>Manage About</span></a></li>
-          <li><a href="#resume" class="nav-link"><span>Manage resume</span></a></li>
-          <li><a href="#message" class="nav-link"><span>Manage Message</span></a></li>
+          <li><a href="#working-space"><span>Manage blog</span></a></li>
+          <li><a href="#about"><span>Manage About</span></a></li>
+          <li><a href="#resume"><span>Manage resume</span></a></li>
+          <li><a href="#working-space-message"><span>Manage Message</span></a></li>
           <li><a href="./index.html#portfolio" class="nav-link"><span>Manage Portfolio</span></a></li>
           <button onclick="formLogout()">Logout</button>
         </ul>
@@ -49,57 +49,116 @@
   <!-- ======= workin space Section ======= -->
 
   <section id="working-space" class="working-space">
-        <table>
+    
+    <br>
+    
+        <table id="myTable">
+        
             <tr>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Option</th>
             </tr>
-            <tr>
-                <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></td>
-                <td>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                     Libero vitae modi dicta obcaecati, aperiam maiores quae! Blanditiis aspernatur et, quisquam 
-                    veritatis accusamus adipisci aut eaque suscipit illum quos, esse exercitationem!
-                </td>
-                <td> <div class="options">
-                    <span><img src="./assets/img/icon/comments.png" alt="" style="height: 30px ; width: 35px"
-                        srcset=""></span>
-                    <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
-                    <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
-                    <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
-                  </div</td>
-
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <button style="font-size: 36px; color: green; font-weight: 800;" onclick="openBlogForm()">+</button>
-            
-            <div class="form-popup" id="myBlogForm">
-                <form action="/action_page.php" class="form-container-blog">
-                  <h1>Blog</h1>
+            <div style="font-size: 24px; color: rgb(190, 190, 190); font-weight: 800; margin: 40px 0 0 20px;"><h1>BLOG</h1></div>
+            <button style="font-size: 24px; cursor: pointer; color: green; font-weight: 800; margin: 5px 0 0 5px;" onclick="openBlogForm()">+</button>
+           
+            <div class="form-popup form-container-blog" id="myBlogForm">
+                <form  class="form-container-blog form-add-blog">
+                  <div style="color:red; font-size:24px; float:right; cursor: pointer;" onclick="closeBlogForm()">x</div>
+                  <h3>NEW BLOG</h3>
+                  <div>
+                      <label for="name"><b>Image</b></label>
+                  </div>    
+                  <input type="file" name="image" id="photo" required> <br>  
                     <div>
                         <label for="name"><b>Title</b></label>
                     </div>
-                    
-                    <input type="text" name="title" class="text-field "> <br>
+                    <div>
+                    <input type="text" name="title" class="text-field" required> <br>
                    <div>
                         Article
                    </div>
                     <div>
-                        <textarea class="text-field" name="message" id="" cols="30" rows="5"></textarea>
+                        <textarea class="text-field" name="article" id="blog-text" cols="30" rows="5" required></textarea>
                     </div>
-                    
-                    <input type="submit" value="SEND">
+                    <div id="percent"></div>
+                    <input type="submit"  value="POST" class="btn">
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                    </form>
+              </div>
+
+              <div class="form-popup form-container-blog" id="myBlogEditForm">
+                <form  class="form-container-blog form-edit-blog">
+                  <div style="color:red; font-size:24px; float:right; cursor: pointer;" onclick="closeBlogEditForm()">x</div>
+                  <h3>EDIT BLOG</h3>
+                  <div>
+                      <label for="name"><b>Image</b></label>
+                  </div>
+                  <div id="pic"></div>    
+                  <input type="file" name="image" id="photo" > <br>  
+                    <div>
+                        <label for="name"><b>ID</b></label>   
+                        <input type="text" name="id" class="text-field" 
+                       
+                         id="blog-edit-id" required> <br>
+                    </div>
+                    <div> 
+                      <label for="name"><b>Title</b></label>   
+                      <input type="text" name="title" class="text-field" id="title-edit-field" required> <br>
+                   <div>
+                        Article
+                   </div>
+                    <div>
+                        <textarea class="text-field" name="article" id="blog-text" cols="30" rows="5" required></textarea>
+                    </div>
+                    <div id="percent"></div>
+                    <input type="submit" value="POST" class="btn">
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
                     </form>
               </div>
         </table>
 
+
+   
+
     
   </section><!-- End Resume Section -->
+
+  <section id="working-space-message" class="working-space">
+    <div>||</div>
+    <div style="font-size: 24px; color: rgb(177, 177, 177); font-weight: 800; margin: 40px 0 0 20px;"><h1>MESSAGE</h1></div>
+    <table id="myTableMessage">
+        <tr class="dash-header">
+            <th>Name</th>
+            <th>Message</th>
+            <th>Option</th>
+        </tr>
+        
+        
+        <div class="form-popup form-container-message" id="myMessageForm">
+            <form  class="form-container-message form-add-blog">
+              <div>
+                 ||   
+              </div>
+             <h1 style="color:red; font-size:28px; float:right" onclick="closeMessageForm()">x</h1>
+              <h1>REPLY</h1>
+              
+                
+                <input type="text" name="title" class="text-field "> <br>
+               <div>
+                    Message
+               </div>
+                <div>
+                    <textarea class="text-field" name="article" id="" cols="30" rows="5"></textarea>
+                </div>
+                
+                <input type="submit" value="SEND" class="btn">
+                </form>
+          </div>
+    </table>
+
+
+</section><!-- End Resume Section -->
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>

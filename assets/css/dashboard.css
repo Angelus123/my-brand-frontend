@@ -3,15 +3,16 @@
 --------------------------------------------------------------*/
 body {
     font-family: "Open Sans", sans-serif;
+    background-color: #6a6b6e;
   }
   
   a {
-    color: #149ddd;
+    color: #c5cbce;
     text-decoration: none;
   }
   
   a:hover {
-    color: #37b3ed;
+    color: #bcdbe9;
     text-decoration: none;
   }
   
@@ -25,16 +26,16 @@ body {
 --------------------------------------------------------------*/
 #header {
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
     width: 200px;
     transition: all ease-in-out 0.5s;
-    z-index: 9997;
+    margin-top: 40px;
     transition: all 0.5s;
-    padding: 0 15px;
-    background: #040b14;
+    background: #343638;
     overflow-y: auto;
+  }
+  .text-light a {
+    font-size: 16px;
+
   }
   
   #header .profile img {
@@ -107,12 +108,14 @@ nav.sticky {
     top: 0;
     font-size: 20px;
   }
+  
   .nav-bar {
     width: 100%;
+    position: fixed;
     top: 0;
     height: 50px;
     left: -4px;
-    background: #000000;
+    background: #272626;
     box-shadow: inset 0px 1px 2px 3px rgba(138, 135, 135, 0.116);
   }
   .nav-bar > ul {
@@ -127,6 +130,15 @@ nav.sticky {
     list-style-type: none;
     white-space: nowrap;
   }
+  .nav-menu > ul > li {
+    position: relative;
+    padding: 20px 0;
+    background-color: #c5cbce5e;
+    text-align: center;
+    margin: 20px 0;
+    list-style-type: none;
+    white-space: nowrap;
+  }
   .nav-icon {
     margin: 0 20px;
   }
@@ -134,17 +146,16 @@ nav.sticky {
   /* mobile and Tablet Nav ----------------------------------------------------------- */
 
 
-
   .working-space {
       margin-left: 220px;
   }
   table {
       width: 100%;
-      background-color: #040b14;
+      background-color: #3c3e3f42;
       height: 55vh;
     }
   tr {
-        background-color: #4f5257;
+        background-color: #4f525777;
         color: white;
         height: 55px;
 
@@ -152,23 +163,30 @@ nav.sticky {
     }
     td{
         padding: 30px;
+        height: 50px;
     }
     th{
-        background-color: #222121;
+        background-color: #363535;
     }
   
   /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
   /* Desktop Navigation */
+  .dash-header {
+    height: 50px;
+  }
 
   .form-container-blog {
-    max-width: 430px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 10px;
-    background-color: white;
+  }
+  .post{
+    color: black;
   }
   /* Full-width input fields */
+  
   .form-container-blog input[type="text"]{
     width: 400px;
     padding: 15px;
@@ -198,10 +216,22 @@ nav.sticky {
   }
   /* Set a style for the submit/login button */
   .form-container-blog .btn {
-    border-radius: 20px;
-    border: 2px rgb(0, 110, 255) solid;
-    background-color: rgb(0, 102, 255);
-    color: white;
+    border-radius: 7px;
+    border: 2px rgb(100, 100, 100) solid;
+    background-color: rgb(197, 197, 197);
+    color: black;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+
+  .form-container-message .btn {
+    border-radius: 7px;
+    border: 2px rgb(100, 100, 100) solid;
+    background-color: rgb(197, 197, 197);
     color: white;
     padding: 16px 20px;
     border: none;
@@ -213,18 +243,61 @@ nav.sticky {
   /* Add a red background color to the cancel button */
   .form-container-blog .cancel {
     width: fit-content;
-  
     float: right;
     top: 20px;
   }
   .form-popup {
     display: none;
-    padding: 40px;
+    padding: 10px;
     width: 60%;
     width: fit-content;
+    border-radius: 7px;
     height: auto;
-    margin: 0 100px;
+    margin: 10px 50px;
     background-color: rgba(122, 121, 121, 0.575);
-    border: 3px solid #f1f1f1;
+    border: 3px solid #858282;
     z-index: 100;
+  }
+
+
+  /* spiner-------------------- */
+  #percent{
+    color: red;
+    margin-left: 48% ;
+  }
+  .lds-ring {
+    display: none;
+    position: relative;
+    margin-top: -90px;
+    margin-left: 45%;
+    width: 70px;
+    height: 70px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
