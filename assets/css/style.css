@@ -48,6 +48,7 @@ nav.sticky {
   width: 100%;
   height: auto;
   left: -4px;
+  background-color: #333;
   background: #000000;
   box-shadow: inset 0px 1px 2px 3px rgba(138, 135, 135, 0.116);
 }
@@ -408,6 +409,10 @@ section {
 
 .section-title {
   padding-bottom: 30px;
+  transition: all ease-in-out 0.5s;border-radius: 10px;
+
+  background-color: white;
+
   width: 60%;
   margin: 30px;
 }
@@ -438,10 +443,10 @@ section {
 # About
 --------------------------------------------------------------*/
 #about {
-  background-image: url(https://themesbrand.com/zooki/layouts/images/home-2-img.png);
+  background-image: url(https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg);
   background-repeat: no-repeat;
-  background-size: 35%;
-  color: #272829a8;
+  background-size: color;
+  color: #f7fbff;
   background-position: center;
 }
 .container-about {
@@ -1352,3 +1357,99 @@ textarea {
 .comment {
   padding-top: 80px;
 }
+
+
+ /* ----------------- spiner -------------------------------------------------------------------- */
+ #percent{
+  color: red;
+  margin-left: 48% ;
+}
+#done-w-blog {
+  color: rgb(222, 228, 222);
+  background-color: green;
+  border-radius: 5%;
+  width: fit-content;
+  margin:10px auto;
+}
+.lds-ring {
+  display: none;
+  position: relative;
+  margin-top: -90px;
+  margin-left: 45%;
+  width: 70px;
+  height: 70px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ------------------------ end Spinner --------------------------------------------------------- */
+
+/* ------------------------ Toaster message --------------------------------------------------------- */
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(5, 107, 5);
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 300px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 1s, fadeout 1.5s 3.5s;
+  animation: fadein 1s, fadeout 1.5s 3.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 100; opacity: 1;} 
+  to {bottom: 300px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 1;}
+  to {bottom: 300px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 300px; opacity: 1;} 
+  to {bottom: 300px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {bottom: 300px; opacity: 1;}
+  to {bottom: 300px; opacity: 1;}
+}
+
+/* --------------------end message--------------------------------------- */

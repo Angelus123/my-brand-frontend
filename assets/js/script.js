@@ -35,7 +35,6 @@ function openReadMoreForm() {
   document.getElementById("readMore").style.display = "block";
   location.href = "#readMore";
 }
-
 function myFunction() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "block") {
@@ -44,11 +43,11 @@ function myFunction() {
     x.style.display = "block";
   }
 }
-
 const form = document.querySelector(".form-container");
 const formSignup = document.querySelector(".form-container-signup");
-const formMessage = document.querySelector(".form-container-message");
 const formComment = document.querySelector(".comment-form")
+const spinner = document.querySelector(".lds-ring");
+const percent = document.querySelector("#percent");
 const firebaseConfig = {
   apiKey: "AIzaSyBWPkObUFhbBsDWm9C4tUuRFedoXhR5LIg",
   authDomain: "my-brand-6d710.firebaseapp.com",
@@ -58,7 +57,6 @@ const firebaseConfig = {
   appId: "1:290071395795:web:a2681620feeec77c908326",
 };
 const app = firebase.initializeApp(firebaseConfig);
-
 formComment.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log(formComment._id.value) 
@@ -79,12 +77,10 @@ formComment.addEventListener("submit", (e) => {
       console.error("Error adding document: ", error);
     });
 });
-
 form.addEventListener("submit", (e) => {
   console.log("Loged In");
   e.preventDefault();
   // Initialize Firebase
-
   app
     .auth()
     .signInWithEmailAndPassword(form.email.value, form.password.value)
@@ -105,7 +101,6 @@ form.addEventListener("submit", (e) => {
       console.log(errorMessage);
     });
 });
-
 formSignup.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log(
@@ -125,8 +120,6 @@ formSignup.addEventListener("submit", (e) => {
       // Signed in
       location.href =`dashboard.html?email="${user.email}"`;
       console.log(userCredential)
-
-
       var user = userCredential.user;
       // ...
     })
@@ -157,9 +150,7 @@ function readMore(id, title, article, image) {
           var cell1 = row.insertCell(0);
     
           // Add some text to the new cells:
-          cell1.innerHTML = `${doc.data().comment}`
-         
-                 
+          cell1.innerHTML = `${doc.data().comment}`        
         }); 
     })
     .catch((error) => {
@@ -173,23 +164,34 @@ function readMore(id, title, article, image) {
   location.href = "#readMore";
 
 }
-
+function  myToasterfunction(successfully) {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  x.innerHTML= `${successfully}`
+  setTimeout(function()
+  { 
+    x.className = x.className.replace("show", ""); }, 3000);
+}
+//----------Send Message Section-----------------------------------
+const formMessage = document.querySelector(".form-container-message");
 formMessage.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(formMessage.name.value, formMessage.message.value);
-
   db.collection("message")
     .add({
       name: formMessage.name.value,
       message: formMessage.message.value,
     })
     .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
+      myToasterfunction("Message Sent...")
+      formMessage.name.value = "";
+      formMessage.email.value = "";
+      formMessage.message.value = "";
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
 });
+//----------End Send Message Section-----------------------------------
 
 const data = [];
 let preData = {};
@@ -200,7 +202,6 @@ db.collection("blogs")
       preData = doc.data();
       preData.id = doc.id;
       data.push(preData);
-      // console.log(doc.data());
     });
     data.forEach(function (rowdata) {
       console.log(rowdata.title);

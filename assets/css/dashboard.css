@@ -1,9 +1,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
     font-family: "Open Sans", sans-serif;
-    background-color: #6a6b6e;
+    background-color: white;
+    margin: 0px;
   }
   
   a {
@@ -12,15 +14,13 @@ body {
   }
   
   a:hover {
-    color: #bcdbe9;
+    color: #fcfcfc;
     text-decoration: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway", sans-serif;
   }
-
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -30,7 +30,9 @@ body {
     transition: all ease-in-out 0.5s;
     margin-top: 40px;
     transition: all 0.5s;
-    background: #343638;
+    background: #000000;
+    border-right: 3px solid white;
+    height: 100vh;
     overflow-y: auto;
   }
   .text-light a {
@@ -115,7 +117,7 @@ nav.sticky {
     top: 0;
     height: 50px;
     left: -4px;
-    background: #272626;
+    background: #000000;
     box-shadow: inset 0px 1px 2px 3px rgba(138, 135, 135, 0.116);
   }
   .nav-bar > ul {
@@ -130,14 +132,22 @@ nav.sticky {
     list-style-type: none;
     white-space: nowrap;
   }
-  .nav-menu > ul > li {
+  .nav-menu div {
     position: relative;
-    padding: 20px 0;
-    background-color: #c5cbce5e;
-    text-align: center;
-    margin: 20px 0;
+    padding: 30px 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #1a1919;
+    box-shadow: inset #00000062 5px 3px 2px;
+    color: rgb(155, 155, 155);
+    border-bottom: 2px solid rgb(41, 41, 41);
     list-style-type: none;
     white-space: nowrap;
+  }
+
+  .nav-menu div:hover {
+    background-color: #505050;
+    box-shadow: inset #33323262 5px 3px 2px;
   }
   .nav-icon {
     margin: 0 20px;
@@ -149,24 +159,26 @@ nav.sticky {
   .working-space {
       margin-left: 220px;
   }
-  table {
-      width: 100%;
-      background-color: #3c3e3f42;
-      height: 55vh;
-    }
-  tr {
-        background-color: #4f525777;
-        color: white;
-        height: 55px;
 
-        
+  table {
+      width: 98%;
+      background-color: #d1dadfaf;
+      height: auto;
     }
+
+  tr {
+        background-color: white;
+        color: black;
+        height: 55px;   
+    }
+
     td{
         padding: 30px;
         height: 50px;
     }
+
     th{
-        background-color: #363535;
+        background-color: #b1adad;
     }
   
   /*--------------------------------------------------------------
@@ -182,11 +194,12 @@ nav.sticky {
     margin: 0 auto;
     padding: 10px;
   }
+
   .post{
     color: black;
   }
+
   /* Full-width input fields */
-  
   .form-container-blog input[type="text"]{
     width: 400px;
     padding: 15px;
@@ -194,6 +207,7 @@ nav.sticky {
     border: none;
     background: #f1f1f1;
   }
+  
   /* When the inputs get focus, do something */
   .form-container-blog input[type="text"]:focus {
     background-color: #ddd;
@@ -218,7 +232,7 @@ nav.sticky {
   .form-container-blog .btn {
     border-radius: 7px;
     border: 2px rgb(100, 100, 100) solid;
-    background-color: rgb(197, 197, 197);
+    background-color: rgb(16, 113, 204);
     color: black;
     padding: 16px 20px;
     border: none;
@@ -265,6 +279,13 @@ nav.sticky {
     color: red;
     margin-left: 48% ;
   }
+  #done-w-blog {
+    color: rgb(222, 228, 222);
+    background-color: green;
+    border-radius: 5%;
+    width: fit-content;
+    margin:10px auto;
+  }
   .lds-ring {
     display: none;
     position: relative;
@@ -301,3 +322,48 @@ nav.sticky {
       transform: rotate(360deg);
     }
   }
+
+/* ------------------------ message --------------------------------------------------------- */
+  #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: rgb(5, 107, 5);
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    bottom: 300px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 1s, fadeout 1.5s 3.5s;
+    animation: fadein 1s, fadeout 1.5s 3.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 100; opacity: 1;} 
+    to {bottom: 300px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 1;}
+    to {bottom: 300px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 300px; opacity: 1;} 
+    to {bottom: 300px; opacity: 1;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 300px; opacity: 1;}
+    to {bottom: 300px; opacity: 1;}
+  }
+
+  /* ----------------------------------------------------------- */
