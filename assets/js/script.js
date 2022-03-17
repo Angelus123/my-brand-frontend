@@ -13,7 +13,7 @@ else{
 
 <a href="#mySignUpForm"><button
   style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
-  onclick="openSignUpForm()">Sign Up</button></a>`
+  onclick="openSignUpForm()">SUBSCRIBE</button></a>`
 
 }
 
@@ -43,7 +43,7 @@ function myFunction() {
     x.style.display = "block";
   }
 }
-const form = document.querySelector(".form-container");
+const formLogin = document.querySelector(".form-container-login");
 const formSignup = document.querySelector(".form-container-signup");
 const formComment = document.querySelector(".comment-form")
 const spinner = document.querySelector(".lds-ring");
@@ -77,28 +77,25 @@ formComment.addEventListener("submit", (e) => {
       console.error("Error adding document: ", error);
     });
 });
-form.addEventListener("submit", (e) => {
+formLogin.addEventListener("submit", (e) => {
   console.log("Loged In");
   e.preventDefault();
   // Initialize Firebase
   app
     .auth()
-    .signInWithEmailAndPassword(form.email.value, form.password.value)
+    .signInWithEmailAndPassword(formLogin.email.value, formLogin.password.value)
     .then((userCredential) => {
       var user = userCredential.user;
-      console.log("Loggedd In:", user.email);
       userCredential
       location.href = `dashboard.html?${user.email}`;
-
       // Signed in
       var user = userCredential.user;
-      console.log("Logged In: ", user);
       // ...
     })
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorMessage);
+     myToasterfunction("Wrong Password or Email!, Try Again")
     });
 });
 formSignup.addEventListener("submit", (e) => {

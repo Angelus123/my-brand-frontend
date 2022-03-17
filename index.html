@@ -89,7 +89,7 @@
   <!-- ======= end Header ======= -->
   <!-- ======= Login form ======= -->
   <div class="form-popup" id="myLoginForm">
-    <form action="/action_page.php" class="form-container">
+    <form action="/action_page.php" class="form-container-login">
       <div class="cancel" onclick="closeLoginForm()">x</div>
       <h1>Login</h1>
 
@@ -100,25 +100,25 @@
       <input type="password" placeholder="Enter Password" name="password" required>
       <input type="checkbox" name="remember" id="remember"><span>keep me logged</span>
       <input type="submit" class="btn" value="Login">
-      Don’t have an account <b> Sign up</b>
+      Don’t have an account <b> Subscribe</b>
     </form>
   </div>
   <div class="form-popup" id="mySignUpForm">
     <form class="form-container-signup">
       <div class="cancel" onclick="closeSignUpForm()">x</div>
-      <h1>SignUp</h1>
+      <h1>Subscribe</h1>
       <label for="email"><b>Full Name</b></label>
       <input type="text" placeholder="Enter Full Name" name="name" required>
 
       <label for="email"><b>Email</b></label>
       <input type="email" placeholder="Enter Email" name="email" required>
 
-      <label for="psw"><b>Password</b></label>
+      <!-- <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required>
       <label for="cpswd"><b>Confirm Password</b></label>
-      <input type="password" placeholder="Enter Password" name="confirmpassword" required>
-      Alrready have account <b>Login</b>
-      <input type="submit" class="btn" value="Sign Up">
+      <input type="password" placeholder="Enter Password" name="confirmpassword" required> -->
+      Admin<b onclick="closeSignUpForm()">Login</b>
+      <input type="submit" class="btn" value="SUBSCRIBE">
     </form>
   </div>
   <!-- ======= end Login form ======= -->
@@ -152,7 +152,7 @@
             </ul>
           </div>
 
-          <div class="get-started">Get started</div>
+          <div class="get-started" onclick="openSignUpForm()">Get started</div>
 
         </div>
 

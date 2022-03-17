@@ -446,7 +446,7 @@ section {
   background-image: url(https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg);
   background-repeat: no-repeat;
   background-size: color;
-  color: #f7fbff;
+  color: rgb(119, 115, 115);
   background-position: center;
 }
 .container-about {
@@ -550,7 +550,7 @@ section {
 .resume_container {
   display: grid;
   background-color: #050d1813;
-  background-image: url("../img/bg.PNG");
+   background-image: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zMDktYWRqLTAxLWt6ZnVubGc2LmpwZw.jpg?s=Vz76_Kd1cHjcHuqkAF1MO0IXZ3Fo6vB39uS8lzOlSf8);
   grid-template-rows: repeat(3 1fr);
   grid-template-columns: repeat(4 1fr);
 }
@@ -1142,6 +1142,57 @@ textarea {
   margin: 10px auto;
   opacity: 0.8;
 }
+
+
+.form-container-login {
+  max-width: 380px;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+
+}
+#article-edit-text {
+height: 100px;
+}
+/* Add styles to the form container */
+.form-container-login input[type="text"]{
+max-width: 300px;
+border-radius: 10px;
+margin: 0 auto;
+padding: 10px;
+background-color: white;
+}
+/* Full-width input fields */
+.form-container-login input[type="text"],
+.form-container-login input[type="password"],
+.form-container-login input[type="email"] {
+width: 350px;
+padding: 15px;
+margin: 5px 0 22px 0;
+border: none;
+background: #f1f1f1;
+}
+/* When the inputs get focus, do something */
+.form-container-login input[type="text"]:focus,
+.form-container-login input[type="password"]:focus {
+background-color: #ddd;
+outline: none;
+}
+.form-container-login .btn {
+
+border-radius: 10px;
+border: 2px rgb(0, 110, 255) solid;
+background-color: rgb(8, 109, 241);
+color: white;
+padding: 10px 20px;
+font-size: 18px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin: 10px auto;
+opacity: 0.8;
+}
 .form-container-signup {
   max-width: 380px;
   border-radius: 10px;
@@ -1149,7 +1200,7 @@ textarea {
   padding: 10px;
   background-color: white;
 }
-.form-container{
+.form-container {
   max-width: 380px;
   border-radius: 10px;
   margin: 0 auto;
