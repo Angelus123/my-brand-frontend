@@ -125,6 +125,13 @@ nav.sticky {
     width: fit-content;
     margin: 0 auto;
   }
+  .logout {
+    width: fit-content;
+    margin-left:  60px;
+    color:#149ddd;
+    border-bottom: 2px #149ddd solid;
+
+  }
   
   .nav-bar > ul > li {
     position: relative;

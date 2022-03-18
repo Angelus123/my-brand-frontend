@@ -1110,7 +1110,7 @@ textarea {
   border-radius: 10px;
   margin: 0 auto;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(91, 167, 238);
 }
 /* Full-width input fields */
 .form-container input[type="text"],

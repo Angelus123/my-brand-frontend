@@ -1,22 +1,26 @@
-const queryString = window.location.search;
-const email=queryString.substring(1,queryString.length);
-console.log(email)
-if(email){
+let newData=0
+try{let newData = JSON.parse(sessionStorage.data).data.user
+  document.getElementById("auth-section").innerHTML = `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a><i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
+  style="color:rgb(91, 167, 238); padding:5px 10px;"
+  onclick="openLogout()">LOGOUT</button></a>`
 
-  document.getElementById("auth-section").innerHTML=email
 }
-else{
-  document.getElementById("auth-section").innerHTML= `<a href="#myLoginForm"><button
+catch{
+  document.getElementById("auth-section").innerHTML = `<a href="#myLoginForm"><button
   style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
-  onclick="openLoginForm()">Login</button></a>
+  onclick="openLoginForm()">LOGIN</button></a>
 
 
 <a href="#mySignUpForm"><button
   style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
-  onclick="openSignUpForm()">SUBSCRIBE</button></a>`
+  onclick="openSignUpForm()">SIGN UP</button></a>`
 
 }
 
+function openLogout() {
+  sessionStorage.clear()
+  location.href = 'index.html';
+}
 function openLoginForm() {
   document.getElementById("myLoginForm").style.display = "block";
 }
@@ -43,8 +47,6 @@ function myFunction() {
     x.style.display = "block";
   }
 }
-const formLogin = document.querySelector(".form-container-login");
-const formSignup = document.querySelector(".form-container-signup");
 const formComment = document.querySelector(".comment-form")
 const spinner = document.querySelector(".lds-ring");
 const percent = document.querySelector("#percent");
@@ -59,9 +61,9 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 formComment.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(formComment._id.value) 
-    console.log(formComment.comment.value)
-    console.log(formComment.name.value);
+  console.log(formComment._id.value)
+  console.log(formComment.comment.value)
+  console.log(formComment.name.value);
 
   db.collection("comment")
     .add({
@@ -77,97 +79,130 @@ formComment.addEventListener("submit", (e) => {
       console.error("Error adding document: ", error);
     });
 });
+
+// Singup implementation:
+async function signIn(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+
+// Singup implementation:
+async function signUp(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+const formLogin = document.querySelector(".form-container-login");
 formLogin.addEventListener("submit", (e) => {
   console.log("Loged In");
   e.preventDefault();
-  // Initialize Firebase
-  app
-    .auth()
-    .signInWithEmailAndPassword(formLogin.email.value, formLogin.password.value)
-    .then((userCredential) => {
-      var user = userCredential.user;
-      userCredential
-      location.href = `dashboard.html?${user.email}`;
-      // Signed in
-      var user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-     myToasterfunction("Wrong Password or Email!, Try Again")
+  const userInfo = {}
+  userInfo.email = formLogin.email.value
+  userInfo.password = formLogin.password.value
+  console.log(userInfo)
+  signIn('http://localhost:4042/api/v1/login', userInfo)
+    .then(data => {
+      console.log("token:", data.token); // JSON data parsed by `data.json()` call
+      // Set Item
+      sessionStorage.setItem("data", JSON.stringify(data));
+      
+      let newData = JSON.parse(sessionStorage.data)
+      console.log("role:", newData.data.user.role)
+      if(newData.data.user.role==="admin"){
+        location.href = 'dashboard.html';
+      }
+      else {
+        location.href = 'index.html';
+      }
+
     });
+
 });
+const formSignup = document.querySelector(".form-container-signup");
 formSignup.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(
-    "signUp In: ",
-    formSignup.email.value,
-    "signUp In: ",
-    formSignup.confirmpassword.value
-  );
-  // Initialize Firebase
-  app
-    .auth()
-    .createUserWithEmailAndPassword(
-      formSignup.email.value,
-      formSignup.confirmpassword.value
-    )
-    .then((userCredential) => {
-      // Signed in
-      location.href =`dashboard.html?email="${user.email}"`;
-      console.log(userCredential)
-      var user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      console.log(error)
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ..
-    });
+  const userInfo = {}
+
+  userInfo.name = formSignup.phone.value,
+    userInfo.email = formSignup.email.value,
+    userInfo.phone = formSignup.phone.value,
+    userInfo.confirmpassword = formSignup.confirmpassword.value,
+    userInfo.password = formSignup.password.value,
+    userInfo.role = "admin",
+    userInfo.name = formSignup.name.value,
+
+    signUp('http://localhost:4042/api/v1/signup', userInfo)
+      .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+      });
+
 });
 const db = app.firestore();
 function readMore(id, title, article, image) {
   console.log(id, title, article, image);
   const form = document.getElementById("readMore");
-  form.style.display ="block"
+  form.style.display = "block"
   db.collection("comment").where("article_id", "==", id)
     .get()
     .then((querySnapshot) => {
-      
-        querySnapshot.forEach((doc) => {
 
-          var table = document.getElementById("myCommentTable");
+      querySnapshot.forEach((doc) => {
 
-          // Create an empty <tr> element and add it to the 1st position of the table:
-          var row = table.insertRow(1);
-    
-          // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-          var cell1 = row.insertCell(0);
-    
-          // Add some text to the new cells:
-          cell1.innerHTML = `${doc.data().comment}`        
-        }); 
+        var table = document.getElementById("myCommentTable");
+
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow(1);
+
+        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+
+        // Add some text to the new cells:
+        cell1.innerHTML = `${doc.data().comment}`
+      });
     })
     .catch((error) => {
-        console.log("Error getting documents: ", error);
+      console.log("Error getting documents: ", error);
     }
     );
-  document.getElementById("readmore-image").innerHTML=`<img src=${image} alt="Blog" height=400px width=70%>`
-  document.getElementById("readmore-title").innerHTML=`${title}`
+  document.getElementById("readmore-image").innerHTML = `<img src=${image} alt="Blog" height=400px width=70%>`
+  document.getElementById("readmore-title").innerHTML = `${title}`
   document.getElementById("comment-id").setAttribute("value", `${id}`);
-  document.getElementById("readmore-article").innerHTML=`${article}`
+  document.getElementById("readmore-article").innerHTML = `${article}`
   location.href = "#readMore";
 
 }
-function  myToasterfunction(successfully) {
+function myToasterfunction(successfully) {
   var x = document.getElementById("snackbar");
   x.className = "show";
-  x.innerHTML= `${successfully}`
-  setTimeout(function()
-  { 
-    x.className = x.className.replace("show", ""); }, 3000);
+  x.innerHTML = `${successfully}`
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
 }
 //----------Send Message Section-----------------------------------
 const formMessage = document.querySelector(".form-container-message");

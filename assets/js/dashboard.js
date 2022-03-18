@@ -1,14 +1,15 @@
-const queryString = window.location.search;
-const email=queryString.substring(1,queryString.length);
-document.getElementById("email").innerHTML=email
+let newData=0
+try{let newData = JSON.parse(sessionStorage.data).data.user
+  document.getElementById("email").innerHTML=newData.name
+}
+catch{
+  location.href = 'index.html';
+
+}
 const formLogout = () =>{
-    firebase.auth().signOut().then(() => {
-        location.href = 'index.html';
-      console.log("Sign-out successful")
-    // Sign-out successful.
-    }).catch((error) => {
-    // An error happened.
-    })
+  sessionStorage.clear()
+  location.href = 'index.html';
+  
     }
 
 
