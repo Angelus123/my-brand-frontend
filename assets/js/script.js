@@ -1,25 +1,58 @@
-let newData=0
-try{let newData = JSON.parse(sessionStorage.data).data.user
-  document.getElementById("auth-section").innerHTML = `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a><i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
+let newData = 0;
+try {
+  let newData = JSON.parse(sessionStorage.data).data.user;
+  const dashboard =
+    newData.role === "admin"
+      ? `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a>`
+      : "dashboard";
+  console.log(dashboard);
+  document.getElementById(
+    "auth-section"
+  ).innerHTML = `${dashboard}<i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
   style="color:rgb(91, 167, 238); padding:5px 10px;"
-  onclick="openLogout()">LOGOUT</button></a>`
-
-}
-catch{
-  document.getElementById("auth-section").innerHTML = `<a href="#myLoginForm"><button
+  onclick="openLogout()">LOGOUT</button></a>`;
+} catch {
+  document.getElementById(
+    "auth-section"
+  ).innerHTML = `<a href="#myLoginForm"><button
   style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
   onclick="openLoginForm()">LOGIN</button></a>
 
 
 <a href="#mySignUpForm"><button
   style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
-  onclick="openSignUpForm()">SIGN UP</button></a>`
+  onclick="openSignUpForm()">SIGN UP</button></a>`;
+}
+function timeSince(date) {
+  var seconds = Math.floor((new Date() - date) / 1000);
 
+  var interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " years";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " months";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
 }
 
 function openLogout() {
-  sessionStorage.clear()
-  location.href = 'index.html';
+  sessionStorage.clear();
+  location.href = "index.html";
 }
 function openLoginForm() {
   document.getElementById("myLoginForm").style.display = "block";
@@ -47,7 +80,7 @@ function myFunction() {
     x.style.display = "block";
   }
 }
-const formComment = document.querySelector(".comment-form")
+const formComment = document.querySelector(".comment-form");
 const spinner = document.querySelector(".lds-ring");
 const percent = document.querySelector("#percent");
 const firebaseConfig = {
@@ -61,118 +94,130 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 formComment.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(formComment._id.value)
-  console.log(formComment.comment.value)
-  console.log(formComment.name.value);
-
-  db.collection("comment")
-    .add({
-      article_id: formComment._id.value,
-      comment: formComment.comment.value,
-      name: formComment.name.value
-    })
-    .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-      location.href = "#myCommentTable";
+  console.log("formComment", formComment._id.value);
+  let user = JSON.parse(sessionStorage.getItem("data"));
+  let token = JSON.parse(sessionStorage.getItem("data")).token;
+  let commentInfo = {};
+  commentInfo.comment = formComment.comment.value;
+  commentInfo.name = user.data.user.name;
+  commentInfo.email = user.data.user.email;
+  let options = {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(commentInfo),
+  };
+  fetch(
+    `https://vila-brand.herokuapp.com/api/v1/blogs/${formComment._id.value}/comment`,
+    options
+  )
+    .then((comments) => {
+      formComment.comment.value = "";
+      myToasterfunction("Thank you, comment sent...");
+      location.reload(true);
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      console.log(error);
     });
 });
 
-// Singup implementation:
-async function signIn(url = '', data = {}) {
-  // Default options are marked with *
+async function signIn(url = "", data = {}) {
   const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
     headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      "Content-Type": "application/json",
     },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify(data),
   });
-  return response.json(); // parses JSON response into native JavaScript objects
+  return response.json();
 }
-
 // Singup implementation:
-async function signUp(url = '', data = {}) {
+async function signUp(url = "", data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data), // body data type must match "Content-Type" header
   });
   return response.json(); // parses JSON response into native JavaScript objects
 }
 const formLogin = document.querySelector(".form-container-login");
+
 formLogin.addEventListener("submit", (e) => {
   console.log("Loged In");
   e.preventDefault();
-  const userInfo = {}
-  userInfo.email = formLogin.email.value
-  userInfo.password = formLogin.password.value
-  console.log(userInfo)
-  signIn('http://localhost:4042/api/v1/login', userInfo)
-    .then(data => {
-      console.log("token:", data.token); // JSON data parsed by `data.json()` call
-      // Set Item
-      sessionStorage.setItem("data", JSON.stringify(data));
-      
-      let newData = JSON.parse(sessionStorage.data)
-      console.log("role:", newData.data.user.role)
-      if(newData.data.user.role==="admin"){
-        location.href = 'dashboard.html';
-      }
-      else {
-        location.href = 'index.html';
-      }
+  const userInfo = {};
+  userInfo.email = formLogin.email.value;
+  userInfo.password = formLogin.password.value;
+  signIn("https://vila-brand.herokuapp.com/api/v1/login", userInfo).then((data) => {
+    console.log("token:", data.token); // JSON data parsed by `data.json()` call
+    // Set Item
+    sessionStorage.setItem("data", JSON.stringify(data));
 
-    });
-
+    let newData = JSON.parse(sessionStorage.data);
+    console.log("role:", newData.data.user.role);
+    if (newData.data.user.role === "admin") {
+      location.href = "dashboard.html";
+    } else {
+      location.href = "index.html";
+    }
+  });
 });
 const formSignup = document.querySelector(".form-container-signup");
 formSignup.addEventListener("submit", (e) => {
   e.preventDefault();
-  const userInfo = {}
+  const userInfo = {};
 
-  userInfo.name = formSignup.phone.value,
-    userInfo.email = formSignup.email.value,
-    userInfo.phone = formSignup.phone.value,
-    userInfo.confirmpassword = formSignup.confirmpassword.value,
-    userInfo.password = formSignup.password.value,
-    userInfo.role = "admin",
-    userInfo.name = formSignup.name.value,
+  (userInfo.name = formSignup.phone.value),
+    (userInfo.email = formSignup.email.value),
+    (userInfo.phone = formSignup.phone.value),
+    (userInfo.confirmpassword = formSignup.confirmpassword.value),
+    (userInfo.password = formSignup.password.value),
+    (userInfo.name = formSignup.name.value),
+    signUp("https://vila-brand.herokuapp.com/api/v1/signup", userInfo).then((data) => {
+      console.log(data); // JSON data parsed by `data.json()` call
+      sessionStorage.setItem("data", JSON.stringify(data));
 
-    signUp('http://localhost:4042/api/v1/signup', userInfo)
-      .then(data => {
-        console.log(data); // JSON data parsed by `data.json()` call
-      });
-
+      let newData = JSON.parse(sessionStorage.data);
+      location.href = "index.html";
+    });
 });
 const db = app.firestore();
-function readMore(id, title, article, image) {
-  console.log(id, title, article, image);
-  const form = document.getElementById("readMore");
-  form.style.display = "block"
-  db.collection("comment").where("article_id", "==", id)
-    .get()
-    .then((querySnapshot) => {
+function readMore(id, title, article, image, date, commentNum) {
+  console.log("date: ", date);
+  const blogDate = document.querySelector(".blog-date");
+  const commentNumber = document.querySelector(".comment-num");
+  commentNumber.innerHTML = commentNum;
+  blogDate.innerHTML = date;
+  let options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  };
 
-      querySnapshot.forEach((doc) => {
+  fetch(`https://vila-brand.herokuapp.com/api/v1/blogs/${id}`, options)
+    .then((response) => response.json())
+    .then((response) => {
+      const form = document.getElementById("readMore");
+      form.style.display = "block";
 
+      response.Article.comments.forEach((comment) => {
         var table = document.getElementById("myCommentTable");
 
         // Create an empty <tr> element and add it to the 1st position of the table:
@@ -180,63 +225,103 @@ function readMore(id, title, article, image) {
 
         // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
         var cell1 = row.insertCell(0);
-
+        let user = "user";
+        if (comment.name) {
+          console.log(comment.name);
+          user = comment.name;
+        }
+        user = user.charAt(0);
         // Add some text to the new cells:
-        cell1.innerHTML = `${doc.data().comment}`
+        cell1.innerHTML = `<div style = "display:flex; background-color: #F5F8FC">
+                              <div style = "background-color: rgb(41, 65, 85);
+                                            border-radius: 50%;
+                                            padding: 5px;
+                                            color: #FFF;
+                                            font-size: 36px;
+                                            width: fit-content;
+                                            margin: 5px; 
+                                            height: fit-content" >
+                                            ${user}
+                              </div>
+                              <div style = "padding: 20px;
+                                            width: fit-content;
+                                            border-radius:10px;
+                                            margin: 20px; 
+                                            background-color: #F5F8FC ">
+                                            ${comment.comment} 
+                              </div>
+                                </div>`;
       });
-    })
-    .catch((error) => {
-      console.log("Error getting documents: ", error);
-    }
-    );
-  document.getElementById("readmore-image").innerHTML = `<img src=${image} alt="Blog" height=400px width=70%>`
-  document.getElementById("readmore-title").innerHTML = `${title}`
+    });
+  document.getElementById(
+    "readmore-image"
+  ).innerHTML = `<img src=${image} alt="Blog" height=400px width=70%>`;
+  document.getElementById("readmore-title").innerHTML = `${title}`;
   document.getElementById("comment-id").setAttribute("value", `${id}`);
-  document.getElementById("readmore-article").innerHTML = `${article}`
+  document.getElementById("readmore-article").innerHTML = `${article}`;
   location.href = "#readMore";
-
 }
 function myToasterfunction(successfully) {
   var x = document.getElementById("snackbar");
   x.className = "show";
-  x.innerHTML = `${successfully}`
+  x.innerHTML = `${successfully}`;
   setTimeout(function () {
     x.className = x.className.replace("show", "");
   }, 3000);
 }
 //----------Send Message Section-----------------------------------
 const formMessage = document.querySelector(".form-container-message");
+let userData = JSON.parse(sessionStorage.getItem("data"));
+if (userData) {
+  formMessage.name.value = userData.data.user.name;
+  formMessage.email.value = userData.data.user.email;
+}
+
 formMessage.addEventListener("submit", (e) => {
   e.preventDefault();
-  db.collection("message")
-    .add({
-      name: formMessage.name.value,
-      message: formMessage.message.value,
-    })
-    .then((docRef) => {
-      myToasterfunction("Message Sent...")
+  let messages = {};
+  let token = JSON.parse(sessionStorage.getItem("data")).token;
+  messages.name = formMessage.name.value;
+  messages.email = formMessage.email.value;
+  messages.message = formMessage.message.value;
+  let options = {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(messages),
+  };
+  fetch("https://vila-brand.herokuapp.com/api/v1/messages", options)
+    .then((message) => {
+      myToasterfunction("Message Sent...");
       formMessage.name.value = "";
       formMessage.email.value = "";
       formMessage.message.value = "";
+      location.reload();
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      myToasterfunction("Message Not Sent Try again...");
+      location.reload();
     });
 });
 //----------End Send Message Section-----------------------------------
+//----------start Send blog Section-----------------------------------
+let options = {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json;charset=utf-8",
+  },
+};
 
-const data = [];
-let preData = {};
-db.collection("blogs")
-  .get()
-  .then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      preData = doc.data();
-      preData.id = doc.id;
-      data.push(preData);
-    });
-    data.forEach(function (rowdata) {
-      console.log(rowdata.title);
+fetch("https://vila-brand.herokuapp.com/api/v1/blogs", options)
+  .then((response) => response.json())
+  .then((response) => {
+    response.data.articles.forEach(function (rowdata) {
+      let commentNum = rowdata.comments.length;
+      let d = rowdata.createdAt.substring(0, 10);
+      let d1 = new Date(rowdata.createdAt);
+      let d2 = timeSince(d1.getTime());
       // Find a <table> element with id="myTable":
       var table = document.getElementById("myBlogTable");
 
@@ -249,22 +334,19 @@ db.collection("blogs")
       // Add some text to the new cells:
       cell1.innerHTML = `
                     <div class="blog-info">
-                    <img src="${rowdata.Url}" alt="" srcset=""
+                    <img src="${rowdata.imagesUrl}" alt="" srcset=""
                       class="blog-img">
                     <h2>${rowdata.title}</h2>
                     
-                    <button class="read-more" onclick="readMore('${rowdata.id}','${rowdata.title}','${rowdata.article}','${rowdata.Url}')">Read more</button>
-                    <span class="blog-date">Jan 21, 2022 • 8 min read</span>
+                    <button class="read-more" onclick="readMore('${rowdata._id}','${rowdata.title}','${rowdata.article}','${rowdata.imagesUrl}', '${d} ${d2}','${commentNum}')">Read more</button>
+                    <span class="blog-date">${d} ${d2} </span>
                     <div class="options">
                       <span><img src="./assets/img/icon/comments.png" alt="" style="height: 25px ; width: 35px"
-                          srcset=""></span>
+                          srcset=""></span> <span style="color:brown; margin-left:-50px">${commentNum}</span>
                       <span><img src="./assets/img/icon/like.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
                       <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
                       <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
                     </div>
                   </div>`;
     });
-  })
-  .catch((error) => {
-    console.log("Error getting documents: ", error);
   });

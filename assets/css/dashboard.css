@@ -227,6 +227,9 @@ nav.sticky {
     border: none;
     background: #f1f1f1;
   }
+  #blog-edit-id {
+    display:none;
+  }
   
   .text-field-readmore {
     width: 400px;
@@ -240,7 +243,7 @@ nav.sticky {
     border-radius: 7px;
     border: 2px rgb(100, 100, 100) solid;
     background-color: rgb(16, 113, 204);
-    color: black;
+    color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;

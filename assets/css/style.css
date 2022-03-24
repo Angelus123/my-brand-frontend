@@ -1084,7 +1084,7 @@ textarea {
   width: 100%;
   padding-top: 100px;
   position: sticky;
-  height: 90vh;
+  height: auto;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.815);
   border: 3px solid #f1f1f1;
@@ -1239,6 +1239,14 @@ opacity: 0.8;
   opacity: 0.8;
 }
 .form-container-signup .cancel {
+  width: fit-content;
+  color: red;
+  font-size: 28px;
+  cursor: pointer;
+  float: right;
+  top: 20px;
+}
+.form-container-login .cancel {
   width: fit-content;
   color: red;
   font-size: 28px;

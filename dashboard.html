@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,156 +8,159 @@
   <link rel="stylesheet" href="./assets/css/dashboard.css">
   <title>Dashboard</title>
 </head>
-  <body>
-    <!-- ======= Header ======= -->
-    <header id="header">
-      <div class="profile">
-        <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html" id="email"></a></h1>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="profile">
+      <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
+      <h1 class="text-light"><a href="index.html" id="email"></a></h1>
+    </div>
+
+    <nav class="nav-menu">
+      <div id="manage-blog" onclick="manageBlog()"><span>Manage blog</span></div>
+      <div id="manage-about"><span>Manage About</span></div>
+      <div id="manage-resume"><span>Manage resume</span></div>
+      <div id="manage-message" onclick="manageMessage()"><span>Manage Message</span></div>
+      <div id="manage-portifolio">Manage Portfolio</span></a></div>
+      <span class="logout" onclick="formLogout()">Logout</span>
+    </nav><!-- .nav-menu -->
+  </header><!-- End Header -->
+  <div id="snackbar">Successfully Created...</div>
+  <nav class="sticky nav-bar">
+    <ul>
+      <li><a href="index.html#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt=""
+              srcset="" class="nav-icon"></span><span>Home</span></a></li>
+      <li><a href="index.html#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt=""
+              srcset="" class="nav-icon"></span><span>About</span></a></li>
+      <li><a href="index.html#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt=""
+              srcset="" class="nav-icon"></span><span>Resume</span></a></li>
+      <li><a href="index.html#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px"
+              alt="" srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
+      <li><a href="index.html#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt=""
+              srcset="" class="nav-icon"></span><span>Blog</span></a></li>
+      <li><a href="index.html#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px"
+              alt="" srcset="" class="nav-icon"></span><span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <!-- ======= workin space Section ======= -->
+  <section id="working-space-blog" class="working-space">
+    <br>
+    <table id="myTable">
+      <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Option</th>
+      </tr>
+      <div style="font-size: 24px; color: rgb(190, 190, 190); font-weight: 800; margin: 40px 0 0 20px;">
+        <h1>BLOG</h1>
       </div>
-    
-      <nav class="nav-menu">
-        <div id="manage-blog" onclick="manageBlog()"><span>Manage blog</span></div>
-        <div id="manage-about"><span>Manage About</span></div>
-        <div id="manage-resume"><span>Manage resume</span></div>
-        <div id="manage-message" onclick="manageMessage()"><span>Manage Message</span></div>
-        <div id="manage-portifolio">Manage Portfolio</span></a></div>
-        <span class="logout" onclick="formLogout()">Logout</span>
-      </nav><!-- .nav-menu -->
-    </header><!-- End Header -->
-    <div id="snackbar">Successfully Created...</div>
-    <nav class="sticky nav-bar">
-      <ul>
-        <li><a href="index.html#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt=""
-                srcset="" class="nav-icon"></span><span>Home</span></a></li>
-        <li><a href="index.html#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt=""
-                srcset="" class="nav-icon"></span><span>About</span></a></li>
-        <li><a href="index.html#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt=""
-                srcset="" class="nav-icon"></span><span>Resume</span></a></li>
-        <li><a href="index.html#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px"
-                alt="" srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
-        <li><a href="index.html#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt=""
-                srcset="" class="nav-icon"></span><span>Blog</span></a></li>
-        <li><a href="index.html#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px"
-                alt="" srcset="" class="nav-icon"></span><span>Contact</span></a></li>
-      </ul>
-    </nav>
-    <!-- ======= workin space Section ======= -->
-    <section id="working-space-blog" class="working-space">
-      <br>
-      <table id="myTable">
-        <tr>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Option</th>
-        </tr>
-        <div style="font-size: 24px; color: rgb(190, 190, 190); font-weight: 800; margin: 40px 0 0 20px;">
-          <h1>BLOG</h1>
-        </div>
-        <button style="font-size: 24px; cursor: pointer; color: green; font-weight: 800; margin: 5px 0 0 5px;"
-          onclick="openBlogForm()">+</button>
-        <div class="form-popup form-container-blog" id="myBlogForm">
-          <form class="form-container-blog form-add-blog">
-            <div style="color:red; font-size:24px; float:right; cursor: pointer;" onclick="closeBlogForm()">x</div>
-            <h3>NEW BLOG</h3>
+      <button style="font-size: 24px; cursor: pointer; color: green; font-weight: 800; margin: 5px 0 0 5px;"
+        onclick="openBlogForm()">+</button>
+      <div class="form-popup form-container-blog" id="myBlogForm">
+        <form class="form-container-blog form-add-blog">
+          <div style="color:red; font-size:24px; float:right; cursor: pointer;" onclick="closeBlogForm()">x</div>
+          <h3>NEW BLOG</h3>
+          <div>
+            <label for="name"><b>Image</b></label>
+          </div>
+          <input type="file" name="image" id="photo" required> <br>
+          <div>
+            <label for="name"><b>Title</b></label>
+          </div>
+          <div>
+            <input type="text" name="title" class="text-field" id="blog-title" required> <br>
             <div>
-              <label for="name"><b>Image</b></label>
-            </div>
-            <input type="file" name="image" id="photo" required> <br>
-            <div>
-              <label for="name"><b>Title</b></label>
+              Article
             </div>
             <div>
-              <input type="text" name="title" class="text-field" id="blog-title" required> <br>
-              <div>
-                Article
-              </div>
-              <div>
-                <textarea class="text-field" name="article" id="blog-text" cols="30" rows="5" required></textarea>
-              </div>
-              <div id="percent"></div>
-              <div id="done-w-blog"></div>
-              <input type="submit" value="POST" class="btn">
-              <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              </div>
-          </form>
-        </div>
-        <div class="form-popup form-container-blog" id="myBlogEditForm">
-          <form class="form-container-blog form-edit-blog">
-            <div style="color:red; font-size:24px; float:right; cursor: pointer;" onclick="closeBlogEditForm()">x</div>
-            <h3>EDIT BLOG</h3>
-            <div>
-              <label for="name"><b>Image</b></label>
+              <textarea class="text-field" name="article" id="blog-text" cols="30" rows="5" required></textarea>
             </div>
-            <div id="pic"></div>
-            <input type="file" name="image" id="photo"> <br>
-            <div>
-              <label for="name"><b>ID</b></label>
-              <br>
-              <input type="text" name="id" class="text-field" id="blog-edit-id" required> <br>
+            <div id="percent"></div>
+            <div id="done-w-blog"></div>
+            <input type="submit" value="POST" class="btn">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
+          </div>
+        </form>
+      </div>
+      <div class="form-popup form-container-blog" id="myBlogEditForm">
+        <form class="form-container-blog form-edit-blog">
+          <div style="color:red; font-size:24px; float:right; cursor: pointer;" onclick="closeBlogEditForm()">x</div>
+          <h3>EDIT BLOG</h3>
+          <div>
+            <label for="name"><b>Image</b></label>
+          </div>
+          <div id="pic"></div>
+          <input type="file" name="image" id="photo-edit"> <br>
+          <div>
+            <!-- <label for="name"><b>ID</b></label> -->
+            <br>
+            <input type="text" name="id" class="text-field" id="blog-edit-id" required> <br>
+          </div>
+          <div>
+            <label for="name"><b>Title</b></label>
+            <br>
+            <input type="text" name="title" class="text-field" id="title-edit-field" required> <br>
             <div>
-              <label for="name"><b>Title</b></label>
-              <br>
-              <input type="text" name="title" class="text-field" id="title-edit-field" required> <br>
-              <div>
-                Article
-              </div>
-              <div>
-                <textarea class="text-field" name="article" id="blog-text" cols="30" rows="5" required></textarea>
-              </div>
-              <div id="percent"></div>
-              <input type="submit" value="POST" class="btn">
-              <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </table>
-    </section><!-- End Resume Section -->
-    <section id="working-space-message" class="working-space">
-      <table id="myTableMessage">
-        <tr class="dash-header">
-          <th>Name</th>
-          <th>Message</th>
-          <th>Option</th>
-        </tr>
-        <div style="font-size: 24px; color: rgb(190, 190, 190); font-weight: 800; padding: 100px 0 0 20px;">
-          <h1>Message</h1>
-        </div>
-        <div class="form-popup form-container-message" id="myMessageForm">
-          <form class="form-container-message form-add-blog">
-            <div>
-              ||
-            </div>
-            <h1 style="color:red; font-size:28px; float:right" onclick="closeMessageForm()">x</h1>
-            <h1>REPLY</h1>
-            <input type="text" name="title" class="text-field "> <br>
-            <div>
-              Message
+              Article
             </div>
             <div>
-              <textarea class="text-field" name="article" id="" cols="30" rows="5"></textarea>
+              <textarea class="text-field" name="article" id="blog-edit-field" cols="30" rows="5" required></textarea>
             </div>
-            <input type="submit" value="SEND" class="btn">
-          </form>
-        </div>
-      </table>
-    </section><!-- End Resume Section -->
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
-    <script src="./assets/js/dashboard.js"></script>
-  </body>
+            <div id="edit-percent"></div>
+            <div id="edit-done-w-blog"></div>
+            <input type="submit" value="UPDATE" class="btn">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </table>
+  </section><!-- End Resume Section -->
+  <section id="working-space-message" class="working-space">
+    <table id="myTableMessage">
+      <tr class="dash-header">
+        <th>Name</th>
+        <th>Message</th>
+        <th>Option</th>
+      </tr>
+      <div style="font-size: 24px; color: rgb(190, 190, 190); font-weight: 800; padding: 100px 0 0 20px;">
+        <h1>Message</h1>
+      </div>
+      <div class="form-popup form-container-message" id="myMessageForm">
+        <form class="form-container-message form-add-blog">
+          <div>
+            ||
+          </div>
+          <h1 style="color:red; font-size:28px; float:right" onclick="closeMessageForm()">x</h1>
+          <h1>REPLY</h1>
+          <input type="text" name="title" class="text-field "> <br>
+          <div>
+            Message
+          </div>
+          <div>
+            <textarea class="text-field" name="article" id="" cols="30" rows="5"></textarea>
+          </div>
+          <input type="submit" value="SEND" class="btn">
+        </form>
+      </div>
+    </table>
+  </section><!-- End Resume Section -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+  <script src="./assets/js/dashboard.js"></script>
+</body>
+
 </html>
