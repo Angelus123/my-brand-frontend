@@ -139,10 +139,10 @@ fetch("https://vila-brand.herokuapp.com/api/v1/blogs", options)
       cell1.innerHTML = `<img src="${rowdata.imagesUrl}" height="100px" width="100px">`;
       cell2.innerHTML = `${rowdata.title}`;
       cell3.innerHTML = `${rowdata.article}`;
-      cell4.innerHTML = `<button onclick = deleteData('${rowdata._id}',"blogs")> 
+      cell4.innerHTML = `<button style ="background-color: red; cursor:pointer; padding:10px; border-radius:10px; color: #fff" onclick = deleteData('${rowdata._id}',"blogs")> 
                                               DELETE 
                                              </button>
-                                             <a href="#myBlogEditForm"<button onclick=openBlogEditForm('${rowdata._id}')> EDIT</button></a>`;
+                                             <a style ="background-color: #067; cursor:pointer; padding:10px; border-radius:10px; color: #fff" href="#myBlogEditForm"<button onclick=openBlogEditForm('${rowdata._id}')> EDIT</button></a>`;
     })
   )
   .catch((error) => {});
@@ -170,7 +170,6 @@ formUpdateBlog.addEventListener("submit", (e) => {
   const blogRef = app.storage().ref(`Images/${imageName}`);
   const uploadTask = blogRef.put(blog__imgurl);
   const BlogText = document.querySelector(".blog-text");
-  const spinnerup = document.querySelector(".lds-ring");
   const percent = document.querySelector("#edit-percent");
   const doneWBlog = document.querySelector("#done-w-blog");
   spinner.style.display = "block";
@@ -349,14 +348,11 @@ fetch("https://vila-brand.herokuapp.com/api/v1/messages", options)
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
-      // Add some text to the new cells:
       cell1.innerHTML = `${rowdata.name}`;
       cell2.innerHTML = `${rowdata.message}`;
-      cell3.innerHTML = `<button onclick = deleteData('${rowdata._id}',"messages")> 
+      cell3.innerHTML = `<button style ="background-color: red; cursor:pointer; padding:10px; border-radius:10px; color: #fff"onclick = deleteData('${rowdata._id}',"messages")> 
                                             DELETE 
-                                           </button>
-                                           <a href="#myBlogEditForm"<button onclick=openBlogEditForm('${rowdata.id}')> EDIT</button></a>`;
-      // cell4.innerHTML = `${rowdata.createdAt}`;
+                                           </button>`;
     });
   })
   .catch((error) => {});

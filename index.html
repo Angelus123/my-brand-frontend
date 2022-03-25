@@ -75,7 +75,7 @@
   <!-- ======= end Header ======= -->
   <!-- ======= Login form ======= -->
   <div class="form-popup" id="myLoginForm">
-    <form action="/action_page.php" class="form-container-login">
+    <form class="form-container-login">
       <div class="cancel" onclick="closeLoginForm()">x</div>
       <h1>Login</h1>
       <label for="email"><b>Email</b></label>
@@ -84,6 +84,12 @@
       <input type="password" placeholder="Enter Password" name="password" required>
       <input type="checkbox" name="remember" id="remember"><span>keep me logged</span>
       <input type="submit" class="btn" value="Login">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </form>
   </div>
   <div class="form-popup" id="mySignUpForm">
@@ -100,7 +106,15 @@
       <input type="password" placeholder="Enter Password" name="password" required>
       <label for="psw"><b>Confirm Password</b></label>
       <input type="password" placeholder="Confirm Password" name="confirmpassword" required>
+      <div id="snackbar"></div>
+      <div id="errorsnackbar"></div>
       <input type="submit" class="btn" value="Sign Up">
+      <div class="lds-ring-up">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </form>
 
   </div>
