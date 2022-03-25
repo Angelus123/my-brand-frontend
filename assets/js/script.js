@@ -1,13 +1,10 @@
 let newData = 0;
-
-
 try {
   let newData = JSON.parse(sessionStorage.data).data.user;
   const dashboard =
     newData.role === "admin"
       ? `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a>`
       : "dashboard";
-  console.log(dashboard);
   document.getElementById(
     "auth-section"
   ).innerHTML = `${dashboard}<i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
@@ -19,8 +16,6 @@ try {
   ).innerHTML = `<a href="#myLoginForm"><button
   style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
   onclick="openLoginForm()">LOGIN</button></a>
-
-
 <a href="#mySignUpForm"><button
   style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
   onclick="openSignUpForm()">SIGN UP</button></a>`;
@@ -56,6 +51,7 @@ function openLogout() {
   sessionStorage.clear();
   location.href = "index.html";
 }
+
 function openLoginForm() {
   document.getElementById("myLoginForm").style.display = "block";
 }
@@ -63,6 +59,7 @@ function openLoginForm() {
 function closeLoginForm() {
   document.getElementById("myLoginForm").style.display = "none";
 }
+
 function openSignUpForm() {
   document.getElementById("mySignUpForm").style.display = "block";
 }
@@ -70,10 +67,12 @@ function openSignUpForm() {
 function closeSignUpForm() {
   document.getElementById("mySignUpForm").style.display = "none";
 }
+
 function openReadMoreForm() {
   document.getElementById("readMore").style.display = "block";
   location.href = "#readMore";
 }
+
 function myFunction() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "block") {
@@ -82,9 +81,11 @@ function myFunction() {
     x.style.display = "block";
   }
 }
+
 const formComment = document.querySelector(".comment-form");
 const spinner = document.querySelector(".lds-ring");
 const percent = document.querySelector("#percent");
+
 const firebaseConfig = {
   apiKey: "AIzaSyBWPkObUFhbBsDWm9C4tUuRFedoXhR5LIg",
   authDomain: "my-brand-6d710.firebaseapp.com",
@@ -108,6 +109,7 @@ async function signIn(url = "", data = {}) {
     referrerPolicy: "no-referrer",
     body: JSON.stringify(data),
   });
+
   return response.json();
 }
 // Singup implementation:
@@ -131,30 +133,41 @@ async function signUp(url = "", data = {}) {
 const formLogin = document.querySelector(".form-container-login");
 
 formLogin.addEventListener("submit", (e) => {
-  console.log("Loged In");
   e.preventDefault();
+  spinner.style.display = "inline-block";
   const userInfo = {};
   userInfo.email = formLogin.email.value;
   userInfo.password = formLogin.password.value;
   signIn("https://vila-brand.herokuapp.com/api/v1/login", userInfo).then((data) => {
-    console.log("token:", data.token); // JSON data parsed by `data.json()` call
+    // console.log("token:", data.token); // JSON data parsed by `data.json()` call
     // Set Item
+try{
     sessionStorage.setItem("data", JSON.stringify(data));
-
     let newData = JSON.parse(sessionStorage.data);
-    console.log("role:", newData.data.user.role);
+    // console.log("role:", newData.data.user.role);
+ if(newData.data){
     if (newData.data.user.role === "admin") {
       location.href = "dashboard.html";
     } else {
       location.href = "index.html";
-    }
+    }}
+  }catch(error){
+    spinner.style.display = "none";
+    console.log(error)
+    myToasterfunction("Invalid Password or Email")
+  }
+  })
+  .catch((err) => {
+    console.log(err)
+    spinner.style.display = "none";
   });
 });
+const spinnerUp = document.querySelector(".lds-ring-up");
 const formSignup = document.querySelector(".form-container-signup");
 formSignup.addEventListener("submit", (e) => {
   e.preventDefault();
+  spinnerUp.style.display = "inline-block";
   const userInfo = {};
-
   (userInfo.name = formSignup.phone.value),
     (userInfo.email = formSignup.email.value),
     (userInfo.phone = formSignup.phone.value),
@@ -162,14 +175,20 @@ formSignup.addEventListener("submit", (e) => {
     (userInfo.password = formSignup.password.value),
     (userInfo.name = formSignup.name.value),
     signUp("https://vila-brand.herokuapp.com/api/v1/signup", userInfo).then((data) => {
-      console.log(data); // JSON data parsed by `data.json()` call
+    if(data.status=== "success") {
       sessionStorage.setItem("data", JSON.stringify(data));
-
-      let newData = JSON.parse(sessionStorage.data);
+      let newData = JSON.parse(sessionStorage.data)
+      spinnerUp.style.display = "none";;
+      myToasterfunction("Welcome "+ data.data.user.name)
       location.href = "index.html";
+    }
+    else{
+      spinnerUp.style.display = "none";
+      myToasterfunction(`<i style="color: red">${data.message}</i>`)
+    }
+    
     });
 });
-const db = app.firestore();
 function readMore(id, title, article, image, date, commentNum) {
   console.log("date: ", date);
   location.href=`blog.html?${id}`
@@ -240,12 +259,29 @@ function myToasterfunction(successfully) {
   x.innerHTML = `${successfully}`;
   setTimeout(function () {
     x.className = x.className.replace("show", "");
-  }, 3000);
+  }, 5000);
+}
+function errorToasterfunction(successfully) {
+  var x = document.getElementById("errorsnackbar");
+  x.className = "show";
+  x.innerHTML = `${successfully}`;
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 5000);
+}
+function errorToasterfunction(successfully) {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  x.innerHTML = `${successfully}`;
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 5000);
 }
 //----------Send Message Section-----------------------------------
 const formMessage = document.querySelector(".form-container-message");
 let userData = JSON.parse(sessionStorage.getItem("data"));
-if (userData) {
+if (userData.data) {
+  console.log("userData:",userData)
   formMessage.name.value = userData.data.user.name;
   formMessage.email.value = userData.data.user.email;
 }
@@ -274,7 +310,7 @@ formMessage.addEventListener("submit", (e) => {
       location.reload();
     })
     .catch((error) => {
-      myToasterfunction("Message Not Sent Try again...");
+      errorToasterfunction("Message Not Sent Try again...");
       location.reload();
     });
 });
