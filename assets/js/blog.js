@@ -206,12 +206,29 @@ function readMore(id) {
                                 </div>
                                 
                             </div>`
-                if((user === JSON.parse(sessionStorage.data).data.user.name.charAt(0))|| JSON.parse(sessionStorage.data).data.user.role==="admin"){
+                            console.log( JSON.parse(sessionStorage.data).data.user.role==="admin")
+                if( JSON.parse(sessionStorage.data).data.user.role==="admin"){
+
                     cell2.innerHTML = `<div>
-                    <button onclick = deleteData()',"blogs")> 
+                        <button onclick = 'deleteData()',"blogs")> 
+                            DELETE 
+                        </button>
+                    </div>`
+                    
+                }
+                else if((user === JSON.parse(sessionStorage.data).data.user.name.charAt(0))){
+                    cell2.innerHTML = `<div>
+                    <button onclick = deleteData(),"blogs")> 
                         DELETE 
                    </button>
                    <a style = "color: blue" href="#myBlogEditForm"<button onclick=openBlogEditForm()> EDIT</button></a>
+                    </div>`
+
+                } else{
+                    cell2.innerHTML = `<div>
+                        <button onclick = dreportData(),"blogs")> 
+                            Report 
+                        </button>
                     </div>`
 
                 }
@@ -318,8 +335,9 @@ formLogin.addEventListener("submit", (e) => {
     sessionStorage.setItem("data", JSON.stringify(data));
 
     let newData = JSON.parse(sessionStorage.data);
-    console.log("role:", newData.data.user.role);
+    // console.log("role:", newData.data.user.role);
     if (newData.data.user.role === "admin") {
+        console.log("role:", newData.data.user.role);
       location.href = `blog.html?${id}`;
     } else {
       location.href = `blog.html?${id}`;

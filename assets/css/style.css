@@ -1612,62 +1612,54 @@ textarea {
 }
 
 
-/* ----------------- spiner -------------------------------------------------------------------- */
-#percent {
-  color: red;
-  margin-left: 48%;
-}
-
-#done-w-blog {
-  color: rgb(222, 228, 222);
-  background-color: green;
-  border-radius: 5%;
-  width: fit-content;
-  margin: 10px auto;
-}
-
-.lds-ring {
-  display: none;
-  position: relative;
-  margin-top: -90px;
-  margin-left: 45%;
-  width: 70px;
-  height: 70px;
-}
-
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
-}
-
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
+/* spiner-------------------- */
+  #percent{
+    color: red;
+    margin-left: 48% ;
   }
-
-  100% {
-    transform: rotate(360deg);
+  #done-w-blog {
+    color: rgb(222, 228, 222);
+    background-color: green;
+    border-radius: 5%;
+    width: fit-content;
+    margin:10px auto;
   }
-}
+  .lds-ring {
+    display: none;
+    position: relative;
+    margin-top: -90px;
+    margin-left: 45%;
+    width: 70px;
+    height: 70px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border: 8px solid rgb(0, 156, 247);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: rgb(7, 64, 170) transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 /* ------------------------ end Spinner --------------------------------------------------------- */
 
@@ -1693,6 +1685,32 @@ textarea {
   -webkit-animation: fadein 1s, fadeout 1.5s 3.5s;
   animation: fadein 1s, fadeout 1.5s 3.5s;
 }
+
+#snackbarFailure {
+  visibility: hidden;
+  min-width: 400px;
+  margin-left: -125px;
+  background-color: rgb(173, 5, 5);
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 28px;
+  padding: 32px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 300px;
+}
+
+#snackbarFailure.show {
+  visibility: visible;
+  -webkit-animation: fadein 1s, fadeout 1.5s 3.5s;
+  animation: fadein 1s, fadeout 1.5s 3.5s;
+}
+
+
+
+
 
 @-webkit-keyframes fadein {
   from {
