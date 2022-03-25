@@ -32,20 +32,6 @@
     <div class="topnav">
       <div class="log"> <img src="./assets/img/logo/logo.png" alt="My Brand" height="40px" width="100px"></div>
       <div id="myLinks">
-
-        <a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>Home</span></a>
-        <a href="#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>About</span></a>
-        <a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>Resume</span></a>
-        <a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px" alt=""
-              srcset="" class="nav-icon"></span><span>Portfolio</span></a>
-        <a href="#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>Blog</span></a></li>
-        <a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px" alt="" srcset=""
-              class="nav-icon"></span><span>Contact</span></a>
-
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -65,18 +51,18 @@
 
   <nav class="sticky nav-bar">
     <ul>
-      <li><a href="#hero"><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>Home</span></a></li>
-      <li><a href="#about"><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt="" srcset=""
+      <li><a href="#hero" class= 'target'><span><img src="assets/img/icon/HomePage.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span >Home</span></a></li>
+      <li><a href="#about" class= 'target'><span><img src="assets/img/icon/about-page.png" height="14px" width="14px" alt="" srcset=""
               class="nav-icon"></span><span>About</span></a></li>
-      <li><a href="#resume"><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>Resume</span></a></li>
-      <li><a href="#portfolio"><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px" alt=""
-              srcset="" class="nav-icon"></span><span>Portfolio</span></a></li>
-      <li><a href="#blog"><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt="" srcset=""
-              class="nav-icon"></span><span>Blog</span></a></li>
-      <li><a href="#contact"><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px" alt=""
-              srcset="" class="nav-icon"></span><span>Contact</span></a></li>
+      <li><a href="#resume" class= 'target'><span><img src="assets/img/icon/resume-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon" ></span><span >Resume</span></a></li>
+      <li><a href="#portfolio" class= 'target'><span><img src="assets/img/icon/portfolio-page.png" height="14px" width="14px" alt=""
+              srcset="" class ="nav-icon"></span><span >Portfolio</span></a></li>
+      <li><a href="#blog" clas s= 'target'><span><img src="assets/img/icon/service-page.png" height="14px" width="14px" alt="" srcset=""
+              class="nav-icon"></span><span >Blog</span></a></li>
+      <li><a href="#contact" class = 'target'><span><img src="assets/img/icon/contact-page.png" height="13px" width="13px" alt=""
+              srcset="" class="nav-icon"></span><span >Contact</span></a></li>
 
 
     </ul>
@@ -159,7 +145,7 @@
   </section><!-- End Hero -->
   <section id="about">
     <div class="container-about">
-      <div class="section-title">
+      <div class="section-title-about">
         <h2>About</h2>
         <p>Hello,
 
@@ -306,7 +292,8 @@
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio section-bg">
-    <h2>PORTIFOLIO</h2>
+
+      <h2>PORTIFOLIO</h2>
     <div class="portfolio_container">
       <div class="portfolio_item1">
         <div class="portfolio-info">
@@ -336,57 +323,13 @@
         </div>
       </div>
     </div>
-
   </section><!-- End Portfolio Section -->
-
-
-  <div id="readMore">
-    <div class="cancel" onclick="closeReadMore">x</div>
-    <div class="read-more-section">
-      <div id="readmore-image"></div>
-      <div class="options">
-        <span class="blog-date"></span>
-        <span><a href="#comment-section"><img src="./assets/img/icon/comments.png" alt=""
-              style="height: 30px ; width: 35px" srcset=""> </a></span> <span class="comment-num" style="color:brown; margin-left:-50px"></span>
-        <span><img src="./assets/img/icon/like.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
-        <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 30px ; width: 35px" srcset=""></span>
-        <span><a href="#share"><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px"
-              srcset=""></a></span>
-      </div>
-      <h1 id="readmore-title"></h1>
-      <p id="readmore-article"></p>
-      <div id="comment-section" class="comment">
-
-        <div>Leave a comment</div>
-        <div>
-          <form class="comment-form">
-            <!-- <label for="email"><b>Full Name</b></label> -->
-            <input type="text" name="_id" id="comment-id" required><br>
-            <textarea class="text-field-readmore" name="comment" id="" cols="100" rows="8" required></textarea><br>
-            <input type="submit" value="SEND">
-          </form>
-        </div>
-
-        <div id="all-comment">
-
-          <p>Comments on blog</p>
-
-          <table id="myCommentTable">
-            <tr>
-              <th></th>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-
-  </div>
   <!-- ======= Services Section ======= -->
   <section id="blog" class="blog">
 
     <ul id="result"></ul>
-    <h2>BLOG</h2>
     <div class="blog_container">
+      <h2>BLOG</h2>
       <table id="myBlogTable">
         <tr>
           <th></th>
@@ -454,7 +397,7 @@
 
   <a href="#"><i></i></a>
 
-  <!-- ======= Header ======= -->
+  <!-- ======= Footer ======= -->
 
   <div class="footer">
     <p>
@@ -466,7 +409,7 @@
     </div>
   </div>
 
-  <!-- ======= end Header ======= -->
+  <!-- ======= end Footer ======= -->
 
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>

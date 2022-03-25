@@ -46,11 +46,7 @@ function openBlogEditForm(id) {
         .setAttribute("value", `${response.Article.title}`);
       document.getElementById("blog-edit-field").value =
         response.Article.article;
-      // document
-      // .getElementById("blog-edit-field")
-      // .setAttribute("value", `${response.Article.title}`);
-      // document.getElementById("article-edit-text").setAttribute("value", `${objData.article}`);
-    });
+   });
   fetch(`https://vila-brand.herokuapp.com/api/v1/blogs/${id}`, updateOptions)
     .then((response) => {
       console.log(response);
@@ -163,7 +159,6 @@ function manageBlog() {
 const formUpdateBlog = document.querySelector(".form-edit-blog");
 formUpdateBlog.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("Here I am:", formUpdateBlog.id.value);
   let blogInfo = {};
   blogInfo.title = formUpdateBlog.title.value;
   blogInfo.article = formUpdateBlog.article.value;
@@ -175,7 +170,7 @@ formUpdateBlog.addEventListener("submit", (e) => {
   const blogRef = app.storage().ref(`Images/${imageName}`);
   const uploadTask = blogRef.put(blog__imgurl);
   const BlogText = document.querySelector(".blog-text");
-  const spinner = document.querySelector(".lds-ring");
+  const spinnerup = document.querySelector(".lds-ring");
   const percent = document.querySelector("#edit-percent");
   const doneWBlog = document.querySelector("#done-w-blog");
   spinner.style.display = "block";
@@ -191,10 +186,10 @@ formUpdateBlog.addEventListener("submit", (e) => {
         document.getElementById("blog-text").value = "";
         percent.innerHTML = `${Math.trunc(progress)}%`;
         percent.style.marginLeft = "48%";
-        spinner.style.display = "inline-block";
+        spinnerup.style.display = "inline-block";
       } else if (progress == 100) {
         percent.style.display = "none";
-        spinner.style.display = "none";
+        spinnerup.style.display = "none";
         doneWBlog.innerHTML = `<span>Upload</span> 100% <img src="https://firebasestorage.googleapis.com/v0/b/my-brand-6d710.appspot.com/o/Images%2F240_F_163742074_xXiKIiQ75jdQDULESQql7Y1f5uS0XIMK.jpg?alt=media&token=a1b3a41a-0f4c-48d7-8d32-28615167e01f" height="40px" width="40px" style="border-radius:40%">`;
 
         myToasterfunction(" Image Uploaded...");
@@ -339,7 +334,6 @@ function myToasterfunction(successfully) {
 const formEditBlog = document.querySelector(".form-edit-blog");
 formEditBlog.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("Hello");
   console.log(formEditBlog.id.value);
 });
 
@@ -355,7 +349,6 @@ fetch("https://vila-brand.herokuapp.com/api/v1/messages", options)
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
       // Add some text to the new cells:
       cell1.innerHTML = `${rowdata.name}`;
       cell2.innerHTML = `${rowdata.message}`;
