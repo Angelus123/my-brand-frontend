@@ -1,4 +1,6 @@
 let newData = 0;
+
+
 try {
   let newData = JSON.parse(sessionStorage.data).data.user;
   const dashboard =
@@ -92,36 +94,6 @@ const firebaseConfig = {
   appId: "1:290071395795:web:a2681620feeec77c908326",
 };
 const app = firebase.initializeApp(firebaseConfig);
-formComment.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("formComment", formComment._id.value);
-  let user = JSON.parse(sessionStorage.getItem("data"));
-  let token = JSON.parse(sessionStorage.getItem("data")).token;
-  let commentInfo = {};
-  commentInfo.comment = formComment.comment.value;
-  commentInfo.name = user.data.user.name;
-  commentInfo.email = user.data.user.email;
-  let options = {
-    method: "PUT",
-    headers: {
-      Authorization: "Bearer " + token,
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: JSON.stringify(commentInfo),
-  };
-  fetch(
-    `https://vila-brand.herokuapp.com/api/v1/blogs/${formComment._id.value}/comment`,
-    options
-  )
-    .then((comments) => {
-      formComment.comment.value = "";
-      myToasterfunction("Thank you, comment sent...");
-      location.reload(true);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
 
 async function signIn(url = "", data = {}) {
   const response = await fetch(url, {
@@ -200,6 +172,7 @@ formSignup.addEventListener("submit", (e) => {
 const db = app.firestore();
 function readMore(id, title, article, image, date, commentNum) {
   console.log("date: ", date);
+  location.href=`blog.html?${id}`
   const blogDate = document.querySelector(".blog-date");
   const commentNumber = document.querySelector(".comment-num");
   commentNumber.innerHTML = commentNum;

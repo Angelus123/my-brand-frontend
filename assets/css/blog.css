@@ -1,0 +1,27 @@
+#readMore {
+    display: none;
+}
+
+.read-more-section {
+    width: 60%;
+    padding-top: 200px;
+    padding: 50px;
+    margin: auto;
+}
+
+.text-field-readmore {
+    width: 60%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    background: #f1f1f1;
+
+}
+
+.text-field-readmore {
+    width: 400px;
+    margin: 5px 0;
+    border: none;
+    background: #f1f1f1;
+
+}
