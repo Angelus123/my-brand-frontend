@@ -10,12 +10,12 @@ const formLogout = () => {
   sessionStorage.clear();
   location.href = "index.html";
 };
+
 function openBlogForm() {
   document.getElementById("myBlogForm").style.display = "block";
 }
 
 function openBlogEditForm(id) {
-  console.log(id);
   let token = JSON.parse(sessionStorage.getItem("data")).token;
   let updateOptions = {
     method: "PATCH",
@@ -34,7 +34,6 @@ function openBlogEditForm(id) {
   fetch(`https://vila-brand.herokuapp.com/api/v1/blogs/${id}`, optionsget)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response.Article);
 
       document.getElementById("myBlogEditForm").style.display = "block";
       document.getElementById(
@@ -46,14 +45,10 @@ function openBlogEditForm(id) {
         .setAttribute("value", `${response.Article.title}`);
       document.getElementById("blog-edit-field").value =
         response.Article.article;
-   });
-  fetch(`https://vila-brand.herokuapp.com/api/v1/blogs/${id}`, updateOptions)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log("Error getting document:", error);
     });
+  fetch(`https://vila-brand.herokuapp.com/api/v1/blogs/${id}`, updateOptions)
+    .then((response) => {})
+    .catch((error) => {});
 }
 
 function closeBlogEditForm() {
@@ -109,11 +104,8 @@ const deleteData = (id, collection) => {
           location.reload();
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
-  } else {
-  }
+      .catch((error) => {});
+  } else {}
 };
 
 const data = [];
@@ -165,7 +157,6 @@ formUpdateBlog.addEventListener("submit", (e) => {
   let id = formUpdateBlog.id.value;
 
   const blog__imgurl = document.getElementById("photo-edit").files[0];
-  console.log("blog__imgurl:", blog__imgurl);
   const imageName = blog__imgurl.name;
   const blogRef = app.storage().ref(`Images/${imageName}`);
   const uploadTask = blogRef.put(blog__imgurl);
@@ -178,7 +169,6 @@ formUpdateBlog.addEventListener("submit", (e) => {
     "state_changed",
     (snapshot) => {
       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log("Upload is " + progress + "% done");
       if (progress <= 99) {
         document.getElementById("photo").value = "";
         document.getElementById("blog-title").value = "";
@@ -201,15 +191,11 @@ formUpdateBlog.addEventListener("submit", (e) => {
       }
       switch (snapshot.state) {
         case firebase.storage.TaskState.paused:
-          console.log("uplaoding paused");
           break;
         case firebase.storage.TaskState.running:
-          console.log("uplaod is running");
       }
     },
-    (error) => {
-      console.log(error);
-    },
+    (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((downloadedImage) => {
         setTimeout(function () {
@@ -219,7 +205,6 @@ formUpdateBlog.addEventListener("submit", (e) => {
         }, 2000);
 
         blogInfo.imagesUrl = downloadedImage;
-        console.log(blogInfo);
         let token = JSON.parse(sessionStorage.getItem("data")).token;
         let options = {
           method: "PATCH",
@@ -265,7 +250,6 @@ formAddBlog.addEventListener("submit", (e) => {
     "state_changed",
     (snapshot) => {
       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log("Upload is " + progress + "% done");
       if (progress <= 99) {
         document.getElementById("photo").value = "";
         document.getElementById("blog-title").value = "";
@@ -288,15 +272,11 @@ formAddBlog.addEventListener("submit", (e) => {
       }
       switch (snapshot.state) {
         case firebase.storage.TaskState.paused:
-          console.log("uplaoding paused");
           break;
         case firebase.storage.TaskState.running:
-          console.log("uplaod is running");
       }
     },
-    (error) => {
-      console.log(error);
-    },
+    (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((downloadedImage) => {
         blogInfo.imagesUrl = downloadedImage;
@@ -333,7 +313,6 @@ function myToasterfunction(successfully) {
 const formEditBlog = document.querySelector(".form-edit-blog");
 formEditBlog.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(formEditBlog.id.value);
 });
 
 //manage messages
@@ -355,9 +334,7 @@ fetch("https://vila-brand.herokuapp.com/api/v1/messages", options)
                                            </button>`;
     });
   })
-  .catch((error) => {});
-{
-}
+  .catch((error) => {}); {}
 
 //Message Manage button-----------------------------------------------
 function manageMessage() {

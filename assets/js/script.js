@@ -153,7 +153,6 @@ try{
     spinner.style.display = "none";
     myToasterfunction("Invalid Password or Email")
     let newData = JSON.parse(sessionStorage.data);
-    // console.log("role:", newData.data.user.role);
  if(newData.data){
     if (newData.data.user.role === "admin") {
       myToasterfunction("Invalid Password or Email")
@@ -165,12 +164,10 @@ try{
     }}
   }catch(error){
     spinner.style.display = "none";
-    console.log(error)
     myToasterfunction("Invalid Password or Email")
   }
   })
   .catch((err) => {
-    console.log(err)
     spinner.style.display = "none";
   });
 });
@@ -202,7 +199,6 @@ formSignup.addEventListener("submit", (e) => {
     });
 });
 function readMore(id, title, article, image, date, commentNum) {
-  console.log("date: ", date);
   location.href=`blog.html?${id}`
   const blogDate = document.querySelector(".blog-date");
   const commentNumber = document.querySelector(".comment-num");
@@ -231,7 +227,6 @@ function readMore(id, title, article, image, date, commentNum) {
         var cell1 = row.insertCell(0);
         let user = "user";
         if (comment.name) {
-          console.log(comment.name);
           user = comment.name;
         }
         user = user.charAt(0);

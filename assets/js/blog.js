@@ -3,12 +3,10 @@ let url = window.location.href;
 var id = url.substring(url.lastIndexOf('?') + 1);
 try {
     let newData = JSON.parse(sessionStorage.data).data.user;
-    console.log("role",JSON.parse(sessionStorage.data).data.user.role);
     const dashboard =
       newData.role === "admin"
         ? `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a>`
         : "dashboard";
-    console.log(dashboard);
     document.getElementById(
       "auth-section"
     ).innerHTML = `${dashboard}<i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
@@ -103,7 +101,6 @@ function readMore(id) {
         .then((response) => {
             const form = document.getElementById("readMore");
             form.style.display = "block";
-
             response.Article.comments.forEach((comment) => {
                 var table = document.getElementById("myCommentTable");
 
@@ -127,7 +124,6 @@ function readMore(id) {
 }
 
 function readMore(id) {
-    // console.log("date: ", date);
     let commentMargin = "80vh";
     let options = {
         method: "GET",
@@ -235,7 +231,6 @@ function readMore(id) {
                
             })
         }).catch(err => {
-                console.log("NetErr: ",err)
             })
         ;
     
@@ -264,7 +259,6 @@ formComment.addEventListener("submit", (e) => {
     } else{  
             
     }
-    console.log("COMMENT:",formComment._id.value)
     let options = {
         method: "PUT",
         headers: {
@@ -324,7 +318,6 @@ async function signIn(url = "", data = {}) {
 const formLogin = document.querySelector(".form-container-login");
 
 formLogin.addEventListener("submit", (e) => {
-  console.log("Loged In");
   e.preventDefault();
   const userInfo = {};
   userInfo.email = formLogin.email.value;
@@ -337,7 +330,6 @@ formLogin.addEventListener("submit", (e) => {
     let newData = JSON.parse(sessionStorage.data);
     // console.log("role:", newData.data.user.role);
     if (newData.data.user.role === "admin") {
-        console.log("role:", newData.data.user.role);
       location.href = `blog.html?${id}`;
     } else {
       location.href = `blog.html?${id}`;
@@ -356,9 +348,7 @@ formSignup.addEventListener("submit", (e) => {
     (userInfo.password = formSignup.password.value),
     (userInfo.name = formSignup.name.value),
     signUp("https://vila-brand.herokuapp.com/api/v1/signup", userInfo).then((data) => {
-      console.log(data); // JSON data parsed by `data.json()` call
       sessionStorage.setItem("data", JSON.stringify(data));
-
       let newData = JSON.parse(sessionStorage.data);
       location.href = "index.html";
     });
