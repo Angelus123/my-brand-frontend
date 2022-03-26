@@ -139,16 +139,28 @@ formLogin.addEventListener("submit", (e) => {
   userInfo.email = formLogin.email.value;
   userInfo.password = formLogin.password.value;
   signIn("https://vila-brand.herokuapp.com/api/v1/login", userInfo).then((data) => {
-    // console.log("token:", data.token); // JSON data parsed by `data.json()` call
-    // Set Item
+    if(data.status === "success"){
+      setTimeout(function () {
+        myToasterfunction("Welcome"+ data.data.user.name);
+      }, 5000);
+      
+    }else{
+      myToasterfunction(`<b style="color: red">${data.message}</b>`)
+    }
+    myToasterfunction("Invalid Password or Email")
 try{
     sessionStorage.setItem("data", JSON.stringify(data));
+    spinner.style.display = "none";
+    myToasterfunction("Invalid Password or Email")
     let newData = JSON.parse(sessionStorage.data);
     // console.log("role:", newData.data.user.role);
  if(newData.data){
     if (newData.data.user.role === "admin") {
+      myToasterfunction("Invalid Password or Email")
       location.href = "dashboard.html";
     } else {
+      spinner.style.display = "none";
+      myToasterfunction("Invalid Password or Email")
       location.href = "index.html";
     }}
   }catch(error){
@@ -280,10 +292,14 @@ function errorToasterfunction(successfully) {
 //----------Send Message Section-----------------------------------
 const formMessage = document.querySelector(".form-container-message");
 let userData = JSON.parse(sessionStorage.getItem("data"));
+try{
 if (userData.data) {
-  console.log("userData:",userData)
   formMessage.name.value = userData.data.user.name;
   formMessage.email.value = userData.data.user.email;
+}
+}
+catch(error){
+
 }
 
 formMessage.addEventListener("submit", (e) => {
