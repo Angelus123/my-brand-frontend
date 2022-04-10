@@ -25,7 +25,7 @@ table {
 
 
 a:hover {
-  color: #37b3ed;
+  color: #eddb37;
   text-decoration: none;
 }
 
@@ -54,7 +54,7 @@ nav.sticky {
   height: auto;
   left: -4px;
   background-color: #333;
-  background: #000000;
+  background: #3e3e3e;
   box-shadow: inset 0px 1px 2px 3px rgba(138, 135, 135, 0.116);
 }
 
@@ -633,11 +633,6 @@ section {
     font-size: 26px;
     color: #173b6c;
   }
-
-  .skill-progress {
-    margin: 5px;
-    display: flex;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -655,8 +650,21 @@ section {
 }
 
 .skill-progress {
-  margin: 20px;
+  box-shadow: 1px 1px 13px 13px rgb(243 194 65);
+  padding-right: 10px;
+  animation: skill;
+  margin: 10px;
   display: flex;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+.skill-progress:hover {
+  background-color: green;
+  cursor: pointer;
+  color:white
 }
 
 /*--------------------------------------------------------------

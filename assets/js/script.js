@@ -300,14 +300,13 @@ catch(error){
 formMessage.addEventListener("submit", (e) => {
   e.preventDefault();
   let messages = {};
-  let token = JSON.parse(sessionStorage.getItem("data")).token;
   messages.name = formMessage.name.value;
   messages.email = formMessage.email.value;
   messages.message = formMessage.message.value;
+  console.log(messages.message)
   let options = {
     method: "POST",
     headers: {
-      Authorization: "Bearer " + token,
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(messages),
