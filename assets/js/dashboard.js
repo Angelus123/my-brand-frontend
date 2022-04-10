@@ -157,6 +157,7 @@ formUpdateBlog.addEventListener("submit", (e) => {
   let id = formUpdateBlog.id.value;
 
   const blog__imgurl = document.getElementById("photo-edit").files[0];
+ 
   const imageName = blog__imgurl.name;
   const blogRef = app.storage().ref(`Images/${imageName}`);
   const uploadTask = blogRef.put(blog__imgurl);
@@ -291,10 +292,10 @@ formAddBlog.addEventListener("submit", (e) => {
         };
         fetch("https://vila-brand.herokuapp.com/api/v1/blogs", options)
           .then((blogs) => {
-            location.reload();
+            // location.reload();
           })
           .catch((error) => {
-            location.reload();
+            // location.reload();
           });
       });
     }
