@@ -1,25 +1,25 @@
-let newData = 0;
-try {
-  let newData = JSON.parse(sessionStorage.data).data.user;
-  const dashboard =
-    newData.role === "admin"
-      ? `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a>`
-      : "dashboard";
-  document.getElementById(
-    "auth-section"
-  ).innerHTML = `${dashboard}<i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
-  style="color:rgb(91, 167, 238); padding:5px 10px;"
-  onclick="openLogout()">LOGOUT</button></a>`;
-} catch {
-  document.getElementById(
-    "auth-section"
-  ).innerHTML = `<a href="#myLoginForm"><button
-  style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
-  onclick="openLoginForm()">LOGIN</button></a>
-<a href="#mySignUpForm"><button
-  style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
-  onclick="openSignUpForm()">SIGN UP</button></a>`;
-}
+// let newData = 0;
+// try {
+//   let newData = JSON.parse(sessionStorage.data).data.user;
+//   const dashboard =
+//     newData.role === "admin"
+//       ? `<a href="dashboard.html" style="color:rgb(91, 167, 238); padding:5px 10px;">DASHBOARD</a>`
+//       : "dashboard";
+//   document.getElementById(
+//     "auth-section"
+//   ).innerHTML = `${dashboard}<i style="color:rgb(91, 167, 238); padding:0px 10px;">${newData.name}</i><br><a href="#myLoginForm"><button
+//   style="color:rgb(91, 167, 238); padding:5px 10px;"
+//   onclick="openLogout()">LOGOUT</button></a>`;
+// } catch {
+//   document.getElementById(
+//     "auth-section"
+//   ).innerHTML = `<a href="#myLoginForm"><button
+//   style="border-radius: 20px; border: 2px rgb(5, 96, 231) solid; width:100px; margin-right: 5px;"
+//   onclick="openLoginForm()">LOGIN</button></a>
+// <a href="#mySignUpForm"><button
+//   style="border-radius: 20px; border: 2px rgb(0, 110, 255) solid; width:100px; background-color: rgb(0, 102, 255); color: white;"
+//   onclick="openSignUpForm()">SIGN UP</button></a>`;
+// }
 function timeSince(date) {
   var seconds = Math.floor((new Date() - date) / 1000);
 
