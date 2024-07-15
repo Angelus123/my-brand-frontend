@@ -210,11 +210,13 @@ nav.sticky {
 /*-----------*/
 .container {
   display: grid;
+  margin: 0 auto;
+  width: 100%;
   background-color: #050d1813;
   background-image: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zMDktYWRqLTAxLWt6ZnVubGc2LmpwZw.jpg?s=Vz76_Kd1cHjcHuqkAF1MO0IXZ3Fo6vB39uS8lzOlSf8);
   grid-template-rows: repeat(3 1fr);
   grid-template-columns: repeat(4 1fr);
-  background-size: 50%;
+  background-size: 100%;
 }
 
 .item1 {
@@ -330,16 +332,17 @@ nav.sticky {
 
 .get-started {
   width: 270px;
+  padding:5px;
   font-size: 24px;
   border-radius: 200px;
-  border: 2px rgb(0, 68, 255) solid;
+  border: 2px rgb(138, 146, 167) solid;
   text-align: center;
   margin: 10px auto;
   cursor: pointer;
 }
 
 .get-started:hover {
-  background-color: rgb(0, 68, 255);
+  background-color: rgb(138, 146, 167);
   border: 2px rgb(252, 253, 255) solid;
   color: white;
 }
@@ -1770,78 +1773,56 @@ textarea {
 }
 
 
-/* Define scrollbar styles */
-/* Width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
 /* Track */
-::-webkit-scrollbar-track {
-  background: #333;
+::-webkit-scrollbar {
+  width: 12px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #0a4caf;
+  background: #333;
   border-radius: 6px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #3464ac;
+  background: #333;
 }
 
-
-
-
-
-@-webkit-keyframes fadein {
-  from {
-    bottom: 100;
-    opacity: 1;
-  }
-
-  to {
-    bottom: 300px;
-    opacity: 1;
-  }
+/* Up arrow */
+::-webkit-scrollbar-button:start:decrement {
+  background-color: #555;
+  height: 12px;
 }
 
-@keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 1;
-  }
-
-  to {
-    bottom: 300px;
-    opacity: 1;
-  }
+/* Down arrow */
+::-webkit-scrollbar-button:end:increment {
+  background-color: #555;
+  height: 12px;
 }
 
-@-webkit-keyframes fadeout {
-  from {
-    bottom: 300px;
-    opacity: 1;
-  }
-
-  to {
-    bottom: 300px;
-    opacity: 1;
-  }
+/* Icons for up and down arrows */
+/* Replace 'path/to/up-arrow.svg' and 'path/to/down-arrow.svg' with your actual SVG paths */
+::-webkit-scrollbar-button {
+  display: block;
+  background-color: #555;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  width: 12px;
 }
 
-@keyframes fadeout {
-  from {
-    bottom: 300px;
-    opacity: 1;
-  }
-
-  to {
-    bottom: 300px;
-    opacity: 1;
-  }
+::-webkit-scrollbar-button:start:decrement {
+  background-image: url('./assets/images/collapse-arrow.png');
 }
 
-/* --------------------end message--------------------------------------- */
+::-webkit-scrollbar-button:end:increment {
+  background-image: url('./assets/images/expand-arrow.png');
+}
+
+/* Hover styles for buttons */
+::-webkit-scrollbar-button:hover {
+  background-color: #faf8f8;
+}

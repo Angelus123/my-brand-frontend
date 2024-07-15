@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Categories from "./Categories";
 import Productivity from "./Productivity";
 import Developments from "./Developments";
-import Navigation from "../Navigation";
+import NavBar from "../NavBar";
 import Channels from "./Channels";
 import GeneralContact from "./GeneralContact";
 const Content = () => {
@@ -11,9 +11,7 @@ const Content = () => {
   const handleAddItem = (e: React.FormEvent<HTMLFormElement>) => {};
   return (
     <div className="w-full mx-auto bg-gray-100 py-12">
-      <Navigation />
-
-      <GeneralContact />
+      <NavBar />
       <div className="w-1/2 mx-auto bg-gray-100 py-12">
         <div className="mx-auto bg-white py-12 shadow-lg rounded-lg">
           <Productivity />

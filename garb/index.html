@@ -143,8 +143,12 @@
               <li>Happiness Guaranteed</li>
             </ul>
           </div>
+      
 
-          <div class="get-started" onclick="openSignUpForm()">Contact me</div>
+          <div class="get-started"> <NavLink
+            to="/GeneralContact"
+            active={location.pathname === "/GeneralContact"}
+          >Contact me </NavLink></div>
 
         </div>
 

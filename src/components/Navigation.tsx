@@ -16,7 +16,17 @@ const Navigation: React.FC = () => {
       <div className="w-fit mx-auto px-4">
         <div className="flex space-x-4">
           <NavLink to="/" active={location.pathname === "/"}>
+          <ScrollLink
+            to="hero"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="text-white hover:text-red-300 cursor-pointer"
+            activeClass="text-red-300"
+          >
             Home
+          </ScrollLink>
+           
           </NavLink>
           <ScrollLink
             to="about"
@@ -39,9 +49,29 @@ const Navigation: React.FC = () => {
           >
            Skills
           </ScrollLink>
+          <ScrollLink
+            to="portfolio"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="text-white hover:text-red-300 cursor-pointer"
+            activeClass="text-red-300"
+          >
+           Portifolio
+          </ScrollLink>
+          <ScrollLink
+            to="resume"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="text-white hover:text-red-300 cursor-pointer"
+            activeClass="text-red-300"
+          >
+           Resume
+          </ScrollLink>
 
           
-          <NavLink
+          {/* <NavLink
             to="/GeneralContact"
             active={location.pathname === "/GeneralContact"}
           >
@@ -52,7 +82,7 @@ const Navigation: React.FC = () => {
             active={location.pathname === "/ServiceRequest"}
           >
             Service Request
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     </nav>

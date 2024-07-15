@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import { Link, useLocation } from "react-router-dom";
 import logo from '../assets/img/logo/logo.png';
 import jsIcon from '../assets/img/icon/js.png';
 import figmaIcon from '../assets/img/icon/figma.png';
@@ -7,13 +8,31 @@ import mysqlIcon from '../assets/img/icon/mysql.png';
 import cssIcon from '../assets/img/icon/css.png';
 import Navigation  from './Navigation';
 import Skills from './Skills';
+import Portfolio from './Portfolio';
+import Resume from './Resume';
 // import mapImage from './assets/img/portfolio/map.png';
+interface NavLinkProps {
+  to: string;
+  active: boolean;
+  children: React.ReactNode;
+}
 
 const App: React.FC = () => {
   const [isSignUpOpen, setIsSignUpOpen] = React.useState(false);
+  const location = useLocation();
   
   const openSignUpForm = () => setIsSignUpOpen(true);
   const closeSignUpForm = () => setIsSignUpOpen(false);
+  const NavLink: React.FC<NavLinkProps> = ({ to, active, children }) => {
+    return (
+      <Link
+        to={to}
+        className={`text-black hover:text-white  hover:text-gray-300 ${active ? "underline" : ""}`}
+      >
+        {children}
+      </Link>
+    );
+  };
 
   return (
     <div className="App">
@@ -51,7 +70,7 @@ const App: React.FC = () => {
             <div id="snackbar"></div>
             <div id="errorsnackbar"></div>
             <input type="submit" className="btn" value="Sign Up" />
-            <div className="lds-ring-up">
+            <div className="lds-rw-fulling-up">
               <div></div>
               <div></div>
               <div></div>
@@ -60,8 +79,8 @@ const App: React.FC = () => {
           </form>
         </div>
       )}
-      <section id='hero'  >
-        <div className="container">
+      <section id='hero'  className='w-full'>
+        <div className="container w-full">
           <div className="item1">
             <div className="hero-title">
               <p>A SOFTWARE ENGINEER</p>
@@ -83,7 +102,12 @@ const App: React.FC = () => {
                   <li>Happiness Guaranteed</li>
                 </ul>
               </div>
-              <div className="get-started" onClick={openSignUpForm}>Contact me</div>
+               <NavLink
+            to="/GeneralContact"
+            active={location.pathname === "/GeneralContact"}
+          ><div className="get-started" onClick={openSignUpForm}>
+             Contact me 
+              </div></NavLink>
             </div>
           </div>
           <div className="item3"></div>
@@ -105,26 +129,19 @@ const App: React.FC = () => {
         </div>
         
       </section>
-      <Skills />
 
+      <section id="skills">
+      <Skills />
+      </section>
       <section id="portfolio">
-        <div className="section-title">
-          <h2>Portfolio</h2>
-          <div className="content">
-            <h2>My Works</h2>
-            <p>Over the years I have worked on different software and web development projects. Below are some of my highlighted works that showcase my skills and experience.</p>
-          </div>
-        </div>
-        {/* <div className="grid-container">
-          <div className="grid-item"><img src={mapImage} alt="Project 1" /><p>Project 1</p></div>
-          <div className="grid-item"><img src={mapImage} alt="Project 2" /><p>Project 2</p></div>
-          <div className="grid-item"><img src={mapImage} alt="Project 3" /><p>Project 3</p></div>
-          <div className="grid-item"><img src={mapImage} alt="Project 4" /><p>Project 4</p></div>
-        </div> */}
+       <Portfolio />
+      </section>
+      <section id="resume">
+       <Resume />
       </section>
 
       <footer>
-        <div className="footer-container">
+        <div className="footer-container py-12 text-center">
           <p>&copy; 2024 Felix. All rights reserved.</p>
         </div>
       </footer>
