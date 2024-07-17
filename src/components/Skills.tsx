@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import jsIcon from "../assets/img/icon/js.png";
+import jsIcon from "../assets/img/skills/js-black-1.png";
+import reactIcon from "../assets/img/skills/react-black-1.png";
+import nodejsIcon from "../assets/img/skills/node-js-1.png";
 import figmaIcon from "../assets/img/icon/figma.png";
 import mysqlIcon from "../assets/img/icon/mysql.png";
 import cssIcon from "../assets/img/icon/css.png";
@@ -21,13 +23,13 @@ const skills: Skill[] = [
       "Proficient in ES6+, experienced in building web applications.",
   },
   {
-    icon: jsIcon,
+    icon: nodejsIcon,
     skill: "Node.js",
     experience: "4 years",
     description: "Experienced in building backend services and REST APIs.",
   },
   {
-    icon: jsIcon,
+    icon: reactIcon,
     skill: "React",
     experience: "4 years",
     description: "Skilled in building dynamic and responsive web interfaces.",

@@ -23,12 +23,12 @@ const Content = () => {
         <hr className="border-t-2 border-dashed border-gray-300 mb-5 mt-20" />
         <form
           onSubmit={handleAddItem}
-          className="md:flex md:space-y-0 md:space-x-4 mx-5 w-5/6 mx-auto"
+          className="md:block md:space-y-0 md:space-x-4 mx-5 w-5/6 mx-auto"
         >
           <div className="flex-1 mt-3">
             <input
               id="title"
-              placeholder="Title"
+              placeholder="Your Name"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
