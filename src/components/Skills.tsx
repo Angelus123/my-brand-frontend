@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import jsIcon from "../assets/img/skills/js-black-1.png";
 import reactIcon from "../assets/img/skills/react-black-1.png";
 import nodejsIcon from "../assets/img/skills/node-js-1.png";
-import figmaIcon from "../assets/img/icon/figma.png";
-import mysqlIcon from "../assets/img/icon/mysql.png";
-import cssIcon from "../assets/img/icon/css.png";
+import figmaIcon from "../assets/img/skills/figma-1.png";
+import mysqlIcon from "../assets/img/skills/mysql-2.png";
+import cssIcon from "../assets/img/skills/css-1.png";
+import htmlIcon from "../assets/img/skills/html-5-1.png";
 // Import other icons as necessary
 
 interface Skill {
@@ -80,7 +81,7 @@ const skills: Skill[] = [
     description: "Experienced in building NoSQL databases and data modeling.",
   },
   {
-    icon: cssIcon,
+    icon: htmlIcon,
     skill: "HTML 5",
     experience: "5 years",
     description: "Proficient in semantic HTML and modern web standards.",
