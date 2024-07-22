@@ -88,14 +88,15 @@ const App: React.FC = () => {
           </div>
           <div className="item2">
             <div className="hero-question">
-              <h1>I can take Your Web or Software To The Next Level?</h1>
+              <h1>I can take Your Web or Software To The Next Level</h1>
             </div>
             <div className="hero-description">
               <div className="hero-desc">
                 <p>Felix will design and build amazing web app and software for you,</p>
                 <ul>
-                  <li>Take Your Website to best level,</li>
+                  <li>Take Your Website to best level</li>
                   <li>Do search Engine Optimization</li>
+                  <li>Work on both Backend and Frontend</li>
                   <li>Customer-Oriented</li>
                   <li>Ultra Fast Loading Sites</li>
                   <li>Works Across Devices</li>
