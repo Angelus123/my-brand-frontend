@@ -292,7 +292,6 @@ nav.sticky {
 }
 
 .hero-title {
-  margin: 20px;
   margin-left: 10%;
   width: 80%;
   font-family: "Athabasca", sans-serif;
@@ -463,12 +462,12 @@ nav.sticky {
   background-size: cover;
 }
 
-.hero-text p {
+/* .hero-text p {
   padding: 15px;
   font-weight: 600;
   line-height: 25px;
   font-size: 18px;
-}
+} */
 
 .hero-question h1 {
   color: #111c2cc4;
@@ -481,7 +480,7 @@ nav.sticky {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding:0 0 120px 0;
   overflow: hidden;
 }
 
@@ -489,7 +488,7 @@ section {
   background: #f5f8fd;
 }
 
-.section-title {
+.section-background {
   padding-bottom: 30px;
   transition: all ease-in-out 0.5s;
   border-radius: 10px;
@@ -513,7 +512,7 @@ section {
   font-size: 32px;
   font-weight: bold;
   position: relative;
-  color: #173b6c;
+  /* color: #173b6c; */
 }
 
 @keyframes about {
