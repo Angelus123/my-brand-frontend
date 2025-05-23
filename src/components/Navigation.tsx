@@ -1,139 +1,36 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import Scroll from "react-scroll";
-
-const ScrollLink = Scroll.Link;
-
-interface NavbarProps {}
-
-interface NavbarState {}
+import { Link as ScrollLink } from "react-scroll";
 
 const Navigation: React.FC = () => {
-  const location = useLocation();
 
   return (
-    <nav className="bg-gray-800 p-4  w-full top-0 fixed">
-      <div className="w-fit mx-auto px-4">
-        <div className="flex space-x-4">
-          <NavLink to="/" active={location.pathname === "/"}>
-          <ScrollLink
-            to="hero"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="text-white hover:text-red-300 cursor-pointer"
-            activeClass="text-red-300"
-          >
-            Home
-          </ScrollLink>
-           
-          </NavLink>
-          <ScrollLink
-            to="about"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="text-white hover:text-red-300 cursor-pointer"
-            activeClass="text-red-300"
-          >
-            about
-          </ScrollLink>
-
-          <ScrollLink
-            to="skill"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="text-white hover:text-red-300 cursor-pointer"
-            activeClass="text-red-300"
-          >
-           Skills
-          </ScrollLink>
-          <ScrollLink
-            to="portfolio"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="text-white hover:text-red-300 cursor-pointer"
-            activeClass="text-red-300"
-          >
-           Portifolio
-          </ScrollLink>
-          <ScrollLink
-            to="resume"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="text-white hover:text-red-300 cursor-pointer"
-            activeClass="text-red-300"
-          >
-           Resume
-          </ScrollLink>
-
-          
-          {/* <NavLink
-            to="/GeneralContact"
-            active={location.pathname === "/GeneralContact"}
-          >
-            General Contact
-          </NavLink>
-          <NavLink
-            to="/ServiceRequest"
-            active={location.pathname === "/ServiceRequest"}
-          >
-            Service Request
-          </NavLink> */}
-        </div>
-      </div>
+    <nav className="fixed top-1/3 right-2 flex w-fit p-1 bg-gray-400 flex-col space-y-4 bg-white p-6 border border-gray-200 shadow-sm hover:shadow-md transition z-50">
+      <NavItem to="hero" label="Home" />
+      <NavItem to="about" label="About Me " />
+      <NavItem to="skill" label="Skills" />
+      <NavItem to="portfolio" label="Portfolio" />
+      <NavItem to="resume" label="Resume" />
     </nav>
   );
 };
 
-// Custom NavLink component to handle active state
-interface NavLinkProps {
-  to: string;
-  active: boolean;
-  children: React.ReactNode;
-}
-
-const NavLink: React.FC<NavLinkProps> = ({ to, active, children }) => {
-  return (
-    <Link
-      to={to}
-      className={`text-white hover:text-gray-300 ${active ? "underline" : ""}`}
-    >
-      {children}
-    </Link>
-  );
-};
+const NavItem = ({ to, label }: { to: string; label: string }) => (
+  <ScrollLink
+    to={to}
+    spy={true}
+    smooth={true}
+    offset={-50}
+    duration={500}
+    activeClass="bg-gradient-to-r w-30 from-gray-500 to-blue-300 text-white shadow-xl scale-105 before:border-l-white"
+    className="relative group w-30 px-6 py-1 pl-8 bg-white/90 rounded-lg shadow-md text-sm cursor-pointer text-gray-800 
+               hover:bg-gradient-to-r from-gray-500 to-blue-400 hover:text-white 
+               transition-all duration-300 ease-in-out transform hover:scale-105
+               before:content-[''] before:absolute before:left-2 before:top-1/2 before:-translate-y-1/2
+               before:w-0 before:h-0 before:border-y-8 before:border-r-8 before:border-y-transparent
+               before:border-r-white group-hover:before:border-r-blue-500"
+  >
+    {label}
+  </ScrollLink>
+);
 
 export default Navigation;
-
-// import Scroll from 'react-scroll';
-
-// const ScrollLink = Scroll.Link;
-
-// interface NavbarProps {}
-
-// interface NavbarState {}
-
-// class Navbar extends Component<NavbarProps, NavbarState> {
-//   render() {
-//     return (
-//       <nav>
-//         <ScrollLink
-//           to="hero"
-//           spy={true}
-//           smooth={true}
-//           duration={500}
-//           className="some-class"
-//           activeClass="some-active-class"
-//         >
-//           Link Text Goes Here
-//         </ScrollLink>
-//       </nav>
-//     );
-//   }
-// }
-
-// export default Navbar;
