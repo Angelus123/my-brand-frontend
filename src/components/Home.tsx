@@ -19,10 +19,6 @@ const App: React.FC = () => {
             <div className="log">
               <img src={logo} alt="My Brand" height="40px" width="100px" />
             </div>
-            <div id="myLinks"></div>
-            <a href="javascript:void(0);" className="icon">
-              <i className="fa fa-bars"></i>
-            </a>
           </div>
         </div>
       </header>

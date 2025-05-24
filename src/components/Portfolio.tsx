@@ -52,10 +52,6 @@ const Portfolio = () => {
     }
   }, [currentItem]);
 
-  const handleDotClick = (index: number) => {
-    setCurrentItem(index);
-  };
-
   return (
     <div className="py-12 h-auto flex flex-col items-center">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full w-full">
