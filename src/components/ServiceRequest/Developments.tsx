@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  TextField,
   FormControlLabel,
-  Checkbox,
-  FormGroup,
+  Checkbox
 } from "@mui/material";
 import { DEVELOPMENT } from "../../utils/contentArrays";
 interface Item {

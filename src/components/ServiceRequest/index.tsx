@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import Categories from "./Categories";
 import Productivity from "./Productivity";
 import Developments from "./Developments";
 import NavBar from "../NavBar";
 import Channels from "./Channels";
-import GeneralContact from "./GeneralContact";
 const Content = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");

@@ -1,12 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import Scroll from "react-scroll";
-
-const ScrollLink = Scroll.Link;
-
-interface NavbarProps {}
-
-interface NavbarState {}
 
 const Navigation: React.FC = () => {
   const location = useLocation();
