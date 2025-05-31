@@ -8,6 +8,7 @@ const Navigation: React.FC = () => {
       <NavItem to="hero" label="Home" />
       <NavItem to="about" label="About Me " />
       <NavItem to="skill" label="Skills" />
+      <NavItem to="experiences" label="Experiences" />
       <NavItem to="portfolio" label="Portfolio" />
       <NavItem to="resume" label="Resume" />
     </nav>

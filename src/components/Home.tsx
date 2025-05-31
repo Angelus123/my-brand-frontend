@@ -8,6 +8,7 @@ import Portfolio from './Portfolio';
 import Resume from './Resume';
 import CodeTyping from './CodeTyping';
 import ContactInfo from './ContactInfo'
+import Experiences from './Experience';
 
 const App: React.FC = () => {
   const ScrollLink = Scroll.Link;
@@ -57,7 +58,7 @@ const App: React.FC = () => {
           <div className="item3"></div>
           <div className="absolute cursor-pointer bottom-0 right-0 flex justify-center">
             <ScrollLink
-              to="portfolio"
+              to="experiences"
               spy={true}
               smooth={true}
               duration={500}
@@ -108,6 +109,11 @@ const App: React.FC = () => {
 
       <section id="skill">
         <Skills />
+
+      </section>
+       <section id="experiences">
+        <Experiences />
+
       </section>
       <section id="portfolio">
         <Portfolio />
