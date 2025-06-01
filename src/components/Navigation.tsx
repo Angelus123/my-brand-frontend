@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 const Navigation: React.FC = () => {
 
   return (
-    <nav className="fixed top-1/3 right-2 flex w-fit p-1 bg-gray-400 flex-col space-y-4 bg-white p-4 border border-gray-200 shadow-sm hover:shadow-md transition z-50">
+    <nav className="fixed top-1/3 right-1 flex w-fit p-1 bg-gray-400 flex-col space-y-4 bg-white p-1 border border-gray-200 shadow-sm hover:shadow-md transition z-50">
       <NavItem to="hero" label="Home" />
       <NavItem to="about" label="About Me " />
       <NavItem to="skill" label="Skills" />

@@ -213,8 +213,8 @@ nav.sticky {
   display: grid;
   margin: 0 auto;
   width: 100%;
-  background-color: #050d1813;
-  background-image: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zMDktYWRqLTAxLWt6ZnVubGc2LmpwZw.jpg?s=Vz76_Kd1cHjcHuqkAF1MO0IXZ3Fo6vB39uS8lzOlSf8);
+  /* background-color: #cfd1d3; */
+  /* background-image: url("./assets/img/portfolio/"); */
   grid-template-rows: repeat(3 1fr);
   grid-template-columns: repeat(4 1fr);
   background-size: 100%;
@@ -239,14 +239,14 @@ nav.sticky {
 .item3 {
   width: 100px;
   height: 100px;
-  background-color: rgb(255, 0, 0);
+  background: linear-gradient(to right, #000000, #654321);
   animation-name: moon;
   animation-duration: 4s;
 }
 
 @keyframes moon {
   0% {
-    background-color: red;
+    background-color: black;
     border-left: 100px solid rgba(255, 176, 4, 0.808);
   }
 
@@ -280,12 +280,12 @@ nav.sticky {
   grid-row: 1/3;
   grid-column: 3/4;
   background-image: url("./assets/img/profile/profile.png");
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   border: 0px solid transparent;
-  width: 400px;
-  border-radius: 50%;
-  border-left: 100px solid rgba(88, 61, 1, 0.808);
+  width: 450px;
+  border-radius: 60%;
+  border-left: 100px solid rgba(88, 61, 1, 0.808); 
   border-bottom: 0;
   background-repeat: no-repeat;
   height: auto;
@@ -374,7 +374,7 @@ nav.sticky {
 
   .item1 {
     width: 100%;
-    background-image: url("./assets/img/hero-bg.jpg");
+    /* background-image: url("./assets/img/hero-bg.jpg"); */
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -388,7 +388,6 @@ nav.sticky {
 
   .item3 {
     display: none;
-    /* background-color:#4b5d68; */
     background-image: url("./assets/img/profile/profile.png");
     background-position: center;
     border: 100px solid transparent;
@@ -457,7 +456,7 @@ nav.sticky {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: auto;
+  background-color: white;
   background-position: unset;
   background-size: cover;
 }
