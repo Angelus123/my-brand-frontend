@@ -1,6 +1,10 @@
+
+
 import React from 'react';
 import '../App.css';
 import logo from '../assets/img/logo/logo.png';
+import urIcon from '../assets/icons/ur.jpg';
+import andelaIcon from '../assets/icons/andela.png';
 import Scroll from "react-scroll";
 import Navigation from './Navigation';
 import Skills from './SkillsSection';
@@ -17,18 +21,18 @@ const App: React.FC = () => {
       <header className="header">
         <div className="">
           <div className="topnav">
-             <ScrollLink
-                to={"hero"}
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={500}
-                className="pointer-cursor"
-              >
-              
-            <div className="fixed cursor-pointer top-3 left-3">
-              <img src={logo} alt="My Brand" height="40px" width="40px" />
-            </div>
+            <ScrollLink
+              to={"hero"}
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+              className="pointer-cursor"
+            >
+
+              <div className="fixed cursor-pointer top-3 left-3">
+                <img src={logo} alt="My Brand" height="40px" width="40px" />
+              </div>
             </ScrollLink>
           </div>
         </div>
@@ -100,7 +104,7 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-semibold text-blue-500 mb-6">Education Background</h2>
               <ul className="px-12 text-gray-800 space-y-8">
                 <li className="flex items-start gap-4">
-                  <img src="/assets/icons/ur.jpg" alt="University Icon" className="w-10 h-10 mt-1" />
+                  <img src={urIcon} alt="University Icon" className="w-10 h-10 mt-1" />
                   <div>
                     <strong>BSc, Computer Engineering</strong><br />
                     <i>University of Rwanda, 2017–2022</i>
@@ -108,7 +112,7 @@ const App: React.FC = () => {
                 </li>
 
                 <li className="flex items-start gap-4 pr-12">
-                  <img src="/assets/icons/andela.png" alt="Andela Icon" className="w-10 h-10 mt-1" />
+                  <img src={andelaIcon} alt="Andela Icon" className="w-10 h-10 mt-1" />
                   <div>
                     <strong>Full Stack Web Development Program</strong><br />
                     <i>Andela Technical Leadership Program, Jan – Sept 2022 (Remote)</i><br />
