@@ -9,6 +9,7 @@ import Resume from './Resume';
 import { Link as ScrollLink } from "react-scroll"
 import ContactInfo from './ContactInfo'
 import Experiences from './Experience';
+import Image from 'next/image';
 
 const App: React.FC = () => {
   const ScrollLink = Scroll.Link;
@@ -17,18 +18,24 @@ const App: React.FC = () => {
       <header className="header">
         <div className="">
           <div className="topnav">
-             <ScrollLink
-                to={"hero"}
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={500}
-                className="pointer-cursor"
-              >
-              
-            <div className="fixed cursor-pointer top-3 left-3">
-              <img src={logo} alt="My Brand" height="40px" width="40px" />
-            </div>
+            <ScrollLink
+              to={"hero"}
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+              className="pointer-cursor"
+            >
+
+              <div className="fixed cursor-pointer top-3 left-3">
+                <Image
+                  src={logo}
+                  alt="My Brand"
+                  width={40}
+                  height={40}
+                  className="transition-transform duration-300 hover:scale-110"
+                />
+              </div>
             </ScrollLink>
           </div>
         </div>

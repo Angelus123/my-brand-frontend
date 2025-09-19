@@ -1,88 +1,36 @@
-# Ben Register Form
- The project uses Tailwind CSS for styling and Material UI for some UI components.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Project Structure
-```js
-src/
-├── assets/
-│ ├── images/
-│ │ └──
-│ │ └── 
-│ ├── fonts/
-│ │ └── 
-├── components/
-│ ├── ui/
-│ │ ├── Button.tsx
-│ │ ├── Checkbox.tsx
-│ │ ├──
-│ ├── ServiceRequest
-│ ├── ServiceRequest
-| |  ├── 
-│ ├── 
+## Getting Started
 
-├── routes/
-│ └── Routes.tsx
-├── App.tsx
-└── index.tsx
+First, run the development server:
 
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Usage
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-To start the development server, run:
-npm start
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-This will start the React application on `http://localhost:3000`.
+## Learn More
 
-## Components
+To learn more about Next.js, take a look at the following resources:
 
-### Navigation
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-The `Navigation` component displays the main navigation bar with links to the "General Contact" and "Service Request" pages. It highlights the current page.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### GeneralContact
+## Deploy on Vercel
 
-The `GeneralContact` component is a placeholder for the general contact form or information.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### ServiceRequest
-
-The `ServiceRequest` component lists productivity items with an expandable/collapsible feature. Each item can be checked using a checkbox without triggering the expansion.
-
-
-### Productivity
-
-The `Productivity` component lists productivity items with an expandable/collapsible feature. Each item can be checked using a checkbox without triggering the expansion.
-
-### Developments
-
-The `Developments` component lists development items with an expandable/collapsible feature. Each item can be checked using a checkbox without triggering the expansion..
-
-## Styling
-
-The project uses Tailwind CSS for utility-first styling and custom components are styled using the Material UI library.
-
-## Background Image
-
-The homepage uses a background image specified in the `assets/images/banner.avif` file.
-
-## Custom Fonts
-
-Custom fonts can be added in the `assets/fonts` directory.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for more information.
-
-Contributing
--N/A
-
-Acknowledgements
-React
-Tailwind CSS
-Material UI
-
-This `README.md` file covers the basic setup, structure, and usage of the project, including how to install, run, and understand the components and styling used. Adjust the content as needed to better fit your project's specifics and additional details.
-
-
-
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
