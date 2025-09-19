@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-
 import Scroll from 'react-scroll';
 import Navigation from './components/Navigation';
 import Skills from './components/SkillsSection';
@@ -16,12 +15,17 @@ const logo = '/assets/img/logo/logo.png';
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0); // State for scroll progress
   const ScrollLink = Scroll.Link;
 
   useEffect(() => {
-    // Check scroll position for back to top button
+    // Check scroll position for back to top button and scroll progress
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
+      // Calculate scroll progress
+      const scrollHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -40,7 +44,10 @@ const App: React.FC = () => {
   return (
     <div className={`App transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
       {/* Scroll Progress Indicator */}
-      <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 z-50" style={{ width: `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%` }}></div>
+      <div
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 z-50"
+        style={{ width: `${scrollProgress}%` }}
+      ></div>
 
       <header className="header fixed top-0 w-full bg-white dark:bg-gray-800 shadow-lg z-40 transition-colors duration-300">
         <div className="container mx-auto px-4">
@@ -78,8 +85,8 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      <Navigation  />
-      
+      <Navigation />
+
       <section
         id="hero"
         className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-100 via-teal-200 to-lime-300 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 pt-16 relative overflow-hidden"
@@ -133,7 +140,7 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-            <ContactInfo  />
+            <ContactInfo />
           </div>
           <div className="absolute bottom-8 right-8 flex justify-center">
             <ScrollLink
@@ -158,7 +165,7 @@ const App: React.FC = () => {
               <span className="absolute -bottom-2 left-1/4 w-1/2 h-1 bg-emerald-500 dark:bg-emerald-400 rounded-full"></span>
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Hello, I'm Felix, a passionate and ambitious software engineer dedicated to rapid growth in the tech
+              Hello, I&apos; m Felix, a passionate and ambitious software engineer dedicated to rapid growth in the tech
               industry. I thrive in both team and independent settings, bringing expertise in various languages,
               frameworks, and technologies to deliver innovative solutions.
             </p>
@@ -218,19 +225,19 @@ const App: React.FC = () => {
       </section>
 
       <section id="skill" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <Skills  />
+        <Skills />
       </section>
       
       <section id="experiences" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <Experiences  />
+        <Experiences darkMode={darkMode} /> {/* Pass darkMode prop correctly */}
       </section>
       
       <section id="portfolio" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <Portfolio  />
+        <Portfolio />
       </section>
       
       <section id="resume" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <Resume  />
+        <Resume />
       </section>
 
       {/* Back to Top Button */}

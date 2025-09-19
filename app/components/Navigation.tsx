@@ -158,13 +158,12 @@ interface NavItemProps {
   darkMode: boolean;
 }
 
-interface NavItemDesktopProps extends NavItemProps {}
-
 interface NavItemMobileProps extends NavItemProps {
   onClick: () => void;
 }
 
-const NavItemDesktop = ({ to, label, icon, activeSection, setActiveSection, darkMode }: NavItemDesktopProps) => {
+// Use NavItemProps directly instead of NavItemDesktopProps
+const NavItemDesktop = ({ to, label, icon, activeSection, setActiveSection, darkMode }: NavItemProps) => {
   const isActive = activeSection === to;
 
   return (

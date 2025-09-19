@@ -168,7 +168,7 @@ const Portfolio = ({ darkMode = false }: PortfolioProps) => {
             {portfolioItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                variants={cardVariants}
+                // variants={cardVariants}
                 className={`relative group cursor-pointer rounded-2xl overflow-hidden flex-shrink-0 w-full md:w-80 h-[28rem] transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl ${
                   currentItem === index ? 'ring-4 ring-emerald-500 scale-105' : 'scale-100'
                 } ${darkMode ? 'bg-gray-800' : 'bg-white border border-teal-100'}`}

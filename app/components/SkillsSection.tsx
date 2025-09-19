@@ -147,7 +147,7 @@ export default function SkillsSection({ darkMode = false }: SkillsSectionProps) 
             className={`inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105
                       ${darkMode ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-emerald-500 hover:bg-emerald-600 text-white'} shadow-md hover:shadow-lg`}
           >
-            Let's Discuss Your Project
+            Let&apos;s Discuss Your Project
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
