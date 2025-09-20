@@ -360,11 +360,11 @@ fetch("https://vila-brand.herokuapp.com/api/v1/blogs", options)
                     <button class="read-more" onclick="readMore('${rowdata._id}','${rowdata.title}','${rowdata.article}','${rowdata.imagesUrl}', '${d} ${d2}','${commentNum}')">Read more</button>
                     <span class="blog-date">${d} ${d2} </span>
                     <div class="options">
-                      <span><img src="./assets/img/icon/comments.png" alt="" style="height: 25px ; width: 35px"
+                      <span><img src="./images/assets/icon/comments.png" alt="" style="height: 25px ; width: 35px"
                           srcset=""></span> <span style="color:brown; margin-left:-50px">${commentNum}</span>
-                      <span><img src="./assets/img/icon/like.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
-                      <span><img src="./assets/img/icon/unlike.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
-                      <span><img src="./assets/img/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+                      <span><img src="./images/assets/icon/like.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+                      <span><img src="./images/assets/icon/unlike.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
+                      <span><img src="./images/assets/icon/share.png" alt="" style="height: 25px ; width: 35px" srcset=""></span>
                     </div>
                   </div>`;
     });

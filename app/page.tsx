@@ -10,7 +10,7 @@ import ContactInfo from './components/ContactInfo';
 import Experiences from './components/Experience';
 import { FiMoon, FiSun, FiChevronDown, FiArrowUp } from 'react-icons/fi';
 
-const logo = '/assets/img/logo/logo.png';
+const logo = '/images/assets/img/logo/logo.png';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);

@@ -182,7 +182,7 @@ const Portfolio = ({ darkMode = false }: PortfolioProps) => {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     placeholder="blur"
-                    blurDataURL="/images/placeholder.png"
+                    blurDataURL="/placeholder.png"
                   />
                   {/* Overlay */}
                   <div
@@ -295,7 +295,7 @@ const Portfolio = ({ darkMode = false }: PortfolioProps) => {
                           fill
                           className="object-cover"
                           placeholder="blur"
-                          blurDataURL="/images/placeholder.png"
+                          blurDataURL="/placeholder.png"
                         />
                       </div>
                       <h3 className={`text-2xl md:text-3xl font-bold ${darkMode ? 'text-white' : 'text-teal-900'}`}>
